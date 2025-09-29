@@ -1,0 +1,525 @@
+/* ============================== 全体設定 ============================== */
+@charset "utf-8";
+
+body {
+    font-family: 'Noto Sans JP', 'メイリオ', Meiryo, 'ヒラギノ角ゴシック','Hiragino Sans', sans-serif;
+    background: #1C1B16;
+    color: #E6E6E6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 背景の幾何学模様 */
+#particles-js { 
+    position: fixed;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+}
+
+#wrapper{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* ============================== ヘッダー ============================== */
+
+#header {
+    backdrop-filter: blur(4px);
+    border-bottom: 0.5px solid #EACE4980;
+    border-left: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 80px;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header h2 {
+    padding: 20px;
+}
+
+#g-navi ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+#g-navi ul li a {
+    display: block;
+    padding: 20px;
+}
+
+#header.done {
+    background-color: #1C1B1680;
+    backdrop-filter: blur(4px);
+    position: fixed;
+    right: -500px;
+    left: auto;
+    width: 500px;
+    height: 100%;
+    padding: 0 30px;
+    border-left: 1px solid #9AC10C80;
+    border-bottom: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-shadow: 0 0 10px #1C1B16;
+
+    opacity: 0;
+    transition: right 0.6s ease, opacity 0.4s ease;
+}
+
+/* メニューボタンをクリックした際に付与されるpanelactiveクラスがついたら */
+#header.done.panelactive {
+    opacity: 1;
+    right: 0;
+}
+
+#header.done #g-navi ul {
+	display: block;
+}
+
+
+/* ハンバーガーメニュー */
+.openbtn {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    background: #EACE49;
+    box-shadow: 0 0 10px #1C1B1680;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/*ボタン内側*/
+.openbtn .openbtn-area{
+    transition: all .6s;
+    width: 50px;
+    height: 50px;
+}
+
+.openbtn span {
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 14px;
+    height: 3px;
+    border-radius: 2px;
+    background: #1C1B16;
+    width: 45%;
+  }
+
+.openbtn span:nth-of-type(1) {
+    top: 15px;
+}
+
+.openbtn span:nth-of-type(2) {
+    top: 23px;
+}
+
+.openbtn span:nth-of-type(3) {
+    top: 31px;
+}
+
+/*activeクラスが付与されると .openbtn-areaが360度回転し、その中の線が回転して×に*/
+.openbtn.active .openbtn-area{
+    transform: rotate(360deg);
+}
+
+.openbtn.active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+}
+
+.openbtn.active span:nth-of-type(2) {
+    opacity: 0;
+}
+
+.openbtn.active span:nth-of-type(3){
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+}
+
+.fadeDown {
+    animation-name: fadeDownAnime;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    display: block;
+}
+
+@keyframes fadeDownAnime {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 640px) {
+    #header {
+        display: none;
+    }
+
+    #header.done {
+        right: -250px;
+        width: 250px;
+        height: 100%;
+        padding: 0 auto;
+    }
+}
+  
+
+/* ============================== ヒーローセクション ============================== */
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.hero_content {
+    padding-left: 120px; 
+}
+
+.title {
+    font-size: 5rem;
+    position: relative;
+}
+
+/* タイトルの文字の背面の縁取り文字 */
+.title::after {
+    content: 'めじろじっく';
+    position: absolute;
+    top: 4px;
+    left: 5px;
+    z-index: -1;
+    color: #1C1B1600;
+    -webkit-text-stroke: 2px #9AC10C;
+}
+
+/* 下線 */
+.title_deco {
+    position: relative;
+    width: 32rem;
+    height: 3px;
+    margin-top: 10px;
+    background-color: #EACE49;
+}
+
+/* 下線の丸部分 */
+.title_deco::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(100%, -50%);
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 3px solid #EACE49;
+    border-radius: 50%;
+    background: transparent;
+}
+
+.subtitle {
+    font-size: 3.5rem;
+    margin-top: 50px;
+}
+
+@media (max-width: 1024px) {
+    .hero_content {
+        padding-left: 60px; 
+    }
+
+    .title {
+        font-size: 4.5rem;
+    }
+
+    .title_deco {
+        width: 28rem;
+    }
+
+    .subtitle {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero_content {
+        padding-left: 20px; 
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+
+    .title::after {
+        top: 3px;
+        left: 4px;
+    }
+
+    .title_deco {
+        width: 19rem;
+        margin-top: 5px;
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+/* ============================== 紹介セクション ============================== */
+.content {
+    color: #1C1B16;
+}
+
+.content h3 {
+    font-size: 2rem;
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px 50px;
+    text-align: center;
+    color: #1C1B16;
+    background-color: #EACE49;
+    border-radius: 100vh 0 0 100vh;
+    position: relative;
+}
+
+.introduction, .pages {
+    padding: 100px 0;
+}
+
+.intro-contents {
+    background: #E6E6E6;
+    padding: 60px 80px;
+    margin: 50px auto 0;
+    border-radius: 16px;
+    width: min(100% - 100px, 1000px);
+    box-shadow: 0 4px 15px #1C1B1680;
+}
+
+.intro-contents h4 {
+    font-size: 1.3rem;
+    margin: 25px 0 10px;
+    display: inline-block;
+}
+
+.intro_deco {
+    position: relative;
+    width: calc(100% + 1rem);
+    height: 3px;
+    margin: 8px 0 10px;
+    background-color: #9AC10C;
+}
+
+/* 下線の丸部分 */
+.intro_deco::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(100%, -50%);
+    width: 1rem;
+    height: 1rem;
+    border: 3px solid #9AC10C;
+    border-radius: 50%;
+    background: transparent;
+}
+
+.intro-contents p {
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+@media (max-width: 640px) {
+    .content h3 {
+        font-size: 1.5rem;
+        width: 220px;
+    }
+
+    .intro-contents {
+        padding: 20px 30px;
+        width: min(100% - 50px, 1000px);
+    }
+}
+
+
+/* ============================== 各ページの説明セクション ============================== */
+
+.pages_list {
+    color: #E6E6E6;
+    display: flex;
+    margin: 150px 0;
+}
+
+.pages_img {
+    position: relative;
+    width: 50%;
+    user-select: none;
+    pointer-events: none;
+}
+
+.pages_list.right {
+    flex-direction: row-reverse;
+}
+
+/* 写真の背景 */
+.pages_img::before, .pages_img::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    z-index: -1;
+}
+/* 背景を写真と同じ形にして少しずらす */
+.pages_list.left .pages_img::before  { left: 15px;  background: #9AC10C; }
+.pages_list.right .pages_img::before { right: 15px; background: #EACE49; }
+/* ちょっとはみ出る分を隠す用 */
+.pages_list.left .pages_img::after  { background: #9AC10C; }
+.pages_list.right .pages_img::after { background: #EACE49; }
+
+.pages_img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+}
+.pages_list.left img  { box-shadow: 5px 5px 10px #1C1B1680; }
+.pages_list.right img { box-shadow: -5px 5px 10px #1C1B1680; }
+
+.pages_text {
+    padding: 0 100px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.pages_text h4 {
+    font-size: 1.8rem;
+}
+.pages_text p {
+    line-height: 1.8;
+    padding: 20px 0 40px;
+}
+
+.pages_text a {
+    position: relative;
+    padding: 0 20px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+}
+
+/*矢印と下線の形状*/
+.pages_text a::before {
+    content: '';
+    position: absolute;
+    bottom:-8px;
+    left: 15%;
+    width: 85%;
+    height: 1px;
+    transition: all .3s;
+}
+.pages_list.left .pages_text a::before  { background: #EACE49; }
+.pages_list.right .pages_text a::before { background: #9AC10C; }
+
+.pages_text a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    right: 0;
+    width: 15px;
+    height: 1px;
+    transform: rotate(35deg);
+    transition: all .3s;
+}
+.pages_list.left .pages_text a::after  { background: #EACE49; }
+.pages_list.right .pages_text a::after { background: #9AC10C; }
+
+/*hoverした際の移動*/
+.pages_text a:hover::before {
+    left: 20%;
+}
+
+.pages_text a:hover::after {
+    right: -5%;
+}
+
+@media (max-width: 640px) {
+    .pages_list {
+        display: block;
+        margin: 50px 0;
+    }
+
+    .pages_img {
+        width: 90%;
+        display: block;
+    }
+    
+    .pages_list.right .pages_img {
+        margin-left: auto;
+    }
+
+    .pages_text {
+        width: 100%;
+        padding: 50px;
+        display: block;
+    }
+}
+
+/* ============================== フッター ============================== */
+
+footer {
+    background-color: #1C1B16;
+    border-top: 1px solid #EACE49;
+    color: #E6E6E6;
+    padding: 25px 0 50px;
+    text-align: center;
+}
+
+footer .links {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 25px;
+}
+
+footer small {
+    display: block;
+    font-size: 0.8rem;
+}
+
