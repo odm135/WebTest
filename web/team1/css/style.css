@@ -27,6 +27,15 @@ a {
     height: 100%;
 }
 
+.sm {
+    display: none;
+}
+@media (max-width: 1024px) {
+    .sm {
+        display: inline;
+    }
+}
+
 
 /* ============================== ヘッダー ============================== */
 
@@ -454,8 +463,8 @@ a {
     height: 1px;
     transition: all .3s;
 }
-.pages_list.left .pages_text a::before  { background: #EACE49; }
-.pages_list.right .pages_text a::before { background: #9AC10C; }
+.pages_list.left .pages_text a::before  { background: #9AC10C; }
+.pages_list.right .pages_text a::before { background: #EACE49; }
 
 .pages_text a::after {
     content: '';
@@ -467,8 +476,8 @@ a {
     transform: rotate(35deg);
     transition: all .3s;
 }
-.pages_list.left .pages_text a::after  { background: #EACE49; }
-.pages_list.right .pages_text a::after { background: #9AC10C; }
+.pages_list.left .pages_text a::after  { background: #9AC10C; }
+.pages_list.right .pages_text a::after { background: #EACE49; }
 
 /*hoverした際の移動*/
 .pages_text a:hover::before {
@@ -477,6 +486,16 @@ a {
 
 .pages_text a:hover::after {
     right: -5%;
+}
+
+@media (max-width: 1024px) {
+    .pages_text h4 {
+        font-size: 1.5rem;
+    }
+
+    .pages_text {
+        padding: 0 25px;
+    }
 }
 
 @media (max-width: 640px) {
@@ -496,7 +515,7 @@ a {
 
     .pages_text {
         width: 100%;
-        padding: 50px;
+        padding: 50px 20px;
         display: block;
     }
 }
@@ -523,3 +542,10 @@ footer small {
     font-size: 0.8rem;
 }
 
+@media (max-width: 640px) {
+    footer .links {
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 50px;
+    }
+}
