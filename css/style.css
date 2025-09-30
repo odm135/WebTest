@@ -1,0 +1,756 @@
+/* ============================== 全体設定 ============================== */
+@charset "utf-8";
+
+body {
+    font-family: 'Noto Sans JP', 'メイリオ', Meiryo, 'ヒラギノ角ゴシック','Hiragino Sans', sans-serif;
+    background: linear-gradient(to right, #2f3b7e, #00a49f);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ============================== ヘッダー表示設定 ============================== */
+
+/* ==================== ヒーローセクション ==================== */
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+.hero:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right, #2f3b7e, #00a49f);
+}
+
+.hero-top {
+    position: fixed;
+    top: 100px;
+    left: 120px;
+    font-weight: bold;
+}
+
+.hide {
+    opacity: 0;
+}
+
+.hero-top p {
+    font-size: 4rem;
+}
+
+.hero-top h1 {
+    font-size: 8rem;
+    margin-top: -20px;
+}
+
+.hero-bottom {
+    position: fixed;
+    bottom: 100px;
+    right: 120px;
+    text-align: right;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+    .hero-top {
+        top: 80px;
+        left: 70px;
+    }
+
+    .hero-top p {
+        font-size: 3rem;
+    }
+
+    .hero-top h1 {
+        font-size: 6rem;
+    }
+
+    .hero-bottom {
+        right: 70px;
+        bottom: 80px;
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero {
+        height: 120vw;
+    }
+
+    .hero-top {
+        top: 60px;
+        left: 20px;
+    }
+
+    .hero-top p {
+        font-size: 2rem;
+    }
+
+    .hero-top h1 {
+        font-size: 4rem;
+    }
+
+    .hero-bottom {
+        right: 20px;
+        font-size: 1.4rem;
+    }
+}
+
+
+/* ----- 出現アニメーション（上） ----- */
+
+.slide-in {
+    overflow: hidden;
+    display: inline-block;
+    opacity: 0;
+    animation-name: slideTextX100;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+}
+
+p .slide-in {
+    animation-delay: 0.2s;
+}
+h1 .slide-in {
+    animation-delay: 0.8s;
+}
+
+.slide-in_inner {
+    display: inline-block;
+    animation-name: slideTextX-100;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    
+}
+
+p .slide-in_inner {
+    animation-delay: 0.2s;
+}
+h1 .slide-in_inner {
+    animation-delay: 0.8s;
+}
+
+@keyframes slideTextX100 {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideTextX-100 {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ----- 出現アニメーション（下） ----- */
+.bgextend {
+    animation-name: bgextendAnimeBase;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    position: relative;
+    overflow: hidden;
+    opacity:0;
+}
+
+@keyframes bgextendAnimeBase {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.bgextend::before {
+    animation-name: bgLRextendAnime;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    opacity: 0;
+}
+
+@keyframes bgLRextendAnime {
+    0% {
+        transform-origin: left;
+        transform: scaleX(0);
+        opacity: 1;
+    }
+    50% {
+        transform-origin: left;
+        transform: scaleX(1);
+    }
+    50.001% {
+        transform-origin: right;
+    }
+    100% {
+        transform-origin: right;
+        transform: scaleX(0);
+        opacity: 1;
+    }
+}
+
+.bgappear {
+    animation-name: bgextendAnimeSecond;
+    animation-duration: 1s;
+    animation-delay: 0.6s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes bgextendAnimeSecond {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.hero-bottom p:nth-of-type(1) .bgextend::before {
+    animation-delay: 1.6s;
+}
+.hero-bottom p:nth-of-type(1) .bgappear {
+    animation-delay: 2.2s;
+}
+
+.hero-bottom p:nth-of-type(2) .bgextend::before {
+    animation-delay: 2.4s;
+}
+.hero-bottom p:nth-of-type(2) .bgappear {
+    animation-delay: 3s;
+}
+
+
+#bg-word_container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+@media (max-width: 640px) {
+    #bg-word_container {
+        display: none;
+    }
+}
+
+/* ----- 文字のスタイル ----- */
+.bg-word {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    white-space: nowrap;
+    font-size: 16px;
+    color: #ffffff00;
+    pointer-events: none;
+    transition: color 0.2s ease;
+}
+
+.phys_words {
+    font-family: "Libertinus Math", serif;
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+.info_words {
+    font-family: "Google Sans Code", monospace;
+}
+
+
+/* ==================== サブヘッダー ==================== */
+.sub {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 70px;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    background: #444444;
+    color: #ffffff;
+    opacity: 0;
+}
+
+
+/* サブヘッダー表示 (フェードイン) */
+.sub.show {
+    display: flex;
+    animation-name: subHeader_fadeIn;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes subHeader_fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* サブヘッダー非表示 (フェードアウト) */
+.sub.fade-out {
+    animation-name: subHeader_fadeOut;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 1;
+}
+
+@keyframes subHeader_fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+}
+
+
+/* ==================== ハンバーガーメニュー（ナビゲーション） ==================== */
+
+.menu {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    z-index: 1000;
+}
+
+.menu span {
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 13px;
+    height: 3px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px #444444b3;
+}
+
+.menu span:nth-of-type(1) {
+    top: 22px;
+    width: 50%;
+}
+
+.menu span:nth-of-type(2) {
+    top: 29px;
+    width: 30%;
+}
+
+/* activeクラスが付与されると線が回転して×に */
+.menu.active span:nth-of-type(1) {
+    top: 20px;
+    left: 16px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 35%;
+}
+
+.menu.active span:nth-of-type(2) {
+    top: 32px;
+    left: 16px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 35%;
+}
+
+nav {
+    position: fixed;
+    z-index: -2;
+    opacity: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right, #2f3b7ecc, #00a49fcc);
+    transition: all 0.3s;
+    color: #ffffff;
+}
+
+/* アクティブクラスがついたら透過なしにして前面へ */
+nav.n-active {
+    opacity: 1;
+    z-index: 999;
+    position: fixed;
+}
+
+
+/* ナビゲーション */
+nav ul {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+nav.n-active ul {
+    display: block;
+}
+
+nav h4 {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 1em;
+}
+
+nav li {
+    list-style: none;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+nav li a {
+    padding: 10px;
+    display: inline-block;
+}
+
+.nav-link {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px; /* テキストと下線の間隔 */
+    background-image: linear-gradient(#ffffff, #ffffff);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 0 1.5px;
+    transition: background-size 0.3s;
+}
+
+.nav-link:hover {
+    background-position: bottom left;
+    background-size: 100% 1.5px;
+}
+
+.blur {
+    filter: blur(8px);
+}
+
+
+/* ============================== メイン要素 ============================== */
+
+main {
+    position: relative;
+    z-index: 0;
+    background: #f7f7f7;
+    padding: 80px;
+}
+
+@media (max-width: 640px) {
+    main {
+        padding: 40px 20px;
+    }
+}
+
+
+/* ==================== 全体紹介文 ==================== */
+
+.introduction {
+    background: #ffffff;
+    width: 100%;
+    max-width: 950px;
+    margin: 100px auto 120px;
+    padding: 60px 80px;
+    position: relative;
+    box-shadow: 0 4px 10px #0000001a;
+    opacity: 0;
+}
+
+@media (max-width: 640px) {
+    .introduction {
+        margin: 100px auto;
+        padding: 40px 30px;
+    }
+}
+
+.introduction:before, .introduction:after {
+    position: absolute;
+    content: '';
+}
+
+.introduction:before {
+    right: 0;
+    bottom: 0;
+    width: 80px;
+    height: 80px;
+    border-right: 4px solid #00a49f;
+    border-bottom: 4px solid #00a49f;
+}
+
+.introduction:after {
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    border-top: 4px solid #2f3b7e;
+    border-left: 4px solid #2f3b7e;
+}
+
+.introduction h2 {
+    text-align: center;
+    font-size: 2rem;
+    width: max-content;
+    margin: 0 auto 1em auto;
+    background: linear-gradient(to right, #2f3b7e, #00a49f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.introduction p {
+    margin-bottom: 1em;
+}
+
+.zoomIn {
+    animation-name: zoomInAnime;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes zoomInAnime {
+    from {
+        transform: scale(0.6);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* ==================== 各発表ページへのリンクカード ==================== */
+
+.contents {
+    max-width: 1200px;
+    margin: 120px auto 100px;
+}
+
+@media (max-width: 640px) {
+    .contents {
+        margin: 100px auto;
+    }
+}
+
+/* 全体紹介文の方のh2と同じ */
+.contents h2 {
+    text-align: center;
+    font-size: 2rem;
+    width: max-content;
+    margin: 0 auto 1.5em auto;
+    background: linear-gradient(to right, #2f3b7e, #00a49f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+}
+
+.contents .links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+@media (max-width: 1024px) {
+    .contents .links {
+        grid-template-columns: repeat(2, 1fr)
+    }
+}
+
+@media (max-width: 640px) {
+    .contents .links {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contents .links a {
+    position: relative;
+    top: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px #0000001a;
+    transition: all .2s;
+    opacity: 0;
+}
+
+.contents .links a:hover {
+    top: -5px;
+    box-shadow: 0 8px 15px #00000036;
+}
+
+.contents .links img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.contents .links h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 15px 0 0;
+}
+
+.physics {
+    color: #2f3b7e;
+}
+
+.information {
+    color: #00a49f;
+}
+
+.contents .links p {
+    padding: 15px 20px 20px;
+    line-height: 1.8rem;
+}
+
+.flip {
+    animation-name: flipAnime;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes flipAnime {
+    from {
+        transform: translate(-20px, 60px) rotate(15deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(0, 1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+
+/* ============================== フッター ============================== */
+
+footer {
+    position: relative;
+    z-index: 0;
+    background: linear-gradient(to right, #2f3b7e, #00a49f);
+    color: #ffffff;
+    padding: 40px 20px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto 1.5rem auto;
+}
+
+@media (max-width: 640px) {
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.footer-links h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.3em;
+}
+
+/* SNS以外のリンクにだけ適用 */
+.footer-links li:not(.sns) a {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 3px;
+    background-image: linear-gradient(#ffffff, #ffffff);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 0 1.5px;
+    transition: background-size 0.3s;
+}
+
+.footer-links ul:not(.sns) a:hover {
+    background-position: bottom left;
+    background-size: 100% 1.5px;
+}
+
+/* SNSアイコン */
+.footer-links .sns {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-links .sns a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.fa-instagram, .fa-x-twitter {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Instagram ホバー時の文字グラデーション */
+.fa-instagram:hover {
+    background: linear-gradient(45deg, rgba(254,212,117,1) 0%,rgba(229,61,93,1) 50%,rgba(194,49,134,1) 70%,rgba(156,56,187,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* X(Twitter) ホバー時 */
+.fa-x-twitter:hover {
+    color: #000000;
+}
+
+/* コピーライト */
+footer small {
+    display: block;
+    text-align: center;
+}
