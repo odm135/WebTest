@@ -117,7 +117,11 @@ a {
 }
 
 #header.done #g-navi ul {
-	display: block;
+    display: block;
+}
+
+#header.done #g-navi li {
+    padding: 15px 0;
 }
 
 
@@ -536,6 +540,22 @@ a {
         display: block;
     }
 }
+
+
+
+.game {
+    text-align: center;
+    padding: 120px 0 40px;
+}
+
+.game iframe {
+    display: inline-block;
+    width: 1280px;
+    height: 770px;
+}
+
+
+
 
 /* ============================== フッター ============================== */
 
