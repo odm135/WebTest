@@ -329,11 +329,8 @@ a {
 }
 
 /* ============================== 紹介セクション ============================== */
-.content {
-    color: #1C1B16;
-}
 
-.content h3 {
+h3 {
     font-size: 2rem;
     width: 400px;
     margin: 0 auto;
@@ -352,10 +349,10 @@ a {
 .intro-contents {
     background: #E6E6E6;
     padding: 60px 80px;
-    margin: 50px auto 0;
+    margin: 100px auto;
     border-radius: 16px;
     width: min(100% - 100px, 1000px);
-    box-shadow: 0 4px 15px #1C1B1680;
+    color: #1C1B16;
 }
 
 .intro-contents h4 {
@@ -409,7 +406,7 @@ a {
 .pages_list {
     color: #E6E6E6;
     display: flex;
-    margin: 150px 0;
+    margin: 120px 0;
 }
 
 .pages_img {
@@ -542,10 +539,10 @@ a {
 }
 
 
-
+/* -------------------------- play.html -------------------------- */
 .game {
     text-align: center;
-    padding: 120px 0 40px;
+    padding: 150px 0 75px;
 }
 
 .game iframe {
