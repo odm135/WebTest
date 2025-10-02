@@ -389,7 +389,7 @@ h3 {
 }
 
 @media (max-width: 640px) {
-    .content h3 {
+    h3 {
         font-size: 1.5rem;
         width: 220px;
     }
@@ -448,7 +448,7 @@ h3 {
 .pages_list.right img { box-shadow: -5px 5px 10px #1C1B1680; }
 
 .pages_text {
-    padding: 0 100px;
+    padding: 0 90px;
     width: 50%;
     display: flex;
     flex-direction: column;
