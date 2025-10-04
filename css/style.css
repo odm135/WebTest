@@ -278,10 +278,14 @@ h1 .slide-in_inner {
     font-family: "Libertinus Math", serif;
     font-style: italic;
     font-size: 1.2rem;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .info_words {
     font-family: "Google Sans Code", monospace;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 
