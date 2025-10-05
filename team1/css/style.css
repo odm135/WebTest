@@ -328,7 +328,10 @@ a {
     }
 }
 
-/* ============================== 紹介セクション ============================== */
+/* ============================== 全ページ共通スタイル ============================== */
+.page_name {
+    font-size: 3rem;
+}
 
 h3 {
     font-size: 2rem;
@@ -341,27 +344,29 @@ h3 {
     border-radius: 100vh 0 0 100vh;
     position: relative;
 }
-
 .introduction, .pages {
-    padding: 100px 0;
+    padding: 100px 0 0;
 }
 
-.intro-contents {
+.item {
     background: #E6E6E6;
     padding: 60px 80px;
-    margin: 100px auto;
+    margin: 80px auto 200px;
     border-radius: 16px;
     width: min(100% - 100px, 1000px);
     color: #1C1B16;
 }
+.introduction .item, .pages .item {
+    margin: 100px auto 150px;
+}
 
-.intro-contents h4 {
+.item h4 {
     font-size: 1.3rem;
     margin: 25px 0 10px;
     display: inline-block;
 }
 
-.intro_deco {
+.h4_deco {
     position: relative;
     width: calc(100% + 1rem);
     height: 3px;
@@ -370,7 +375,7 @@ h3 {
 }
 
 /* 下線の丸部分 */
-.intro_deco::after {
+.h4_deco::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -383,7 +388,7 @@ h3 {
     background: transparent;
 }
 
-.intro-contents p {
+.item p {
     margin-bottom: 40px;
     line-height: 1.8;
 }
@@ -394,14 +399,14 @@ h3 {
         width: 220px;
     }
 
-    .intro-contents {
+    .item {
         padding: 20px 30px;
         width: min(100% - 50px, 1000px);
     }
 }
 
 
-/* ============================== 各ページの説明セクション ============================== */
+/* ============================== トップページの各ページの説明セクション ============================== */
 
 .pages_list {
     color: #E6E6E6;
@@ -551,6 +556,10 @@ h3 {
     height: 770px;
 }
 
+/* h3, h4 あたりはindexと共通 */
+.content {
+    padding: 80px 0 0;
+}
 
 
 
