@@ -344,11 +344,11 @@ a {
 
 .page_name::before,
 .page_name::after {
-  content: "";
-  display: block;
-  flex: 0 0 80px;
-  height: 3px;
-  background-color: #9AC10C;
+    content: "";
+    display: block;
+    flex: 0 0 80px;
+    height: 3px;
+    background-color: #9AC10C;
 }
 
 
