@@ -4,4 +4,4 @@
 
 <a href="https://odm135.github.io/mejirosai2025/">トップページ</a>
 
-<a href="https://odm135.github.io/mejirosai2025/team1/">チーム1「めじろじっく」 - トップページ</a>
+<a href="https://odm135.github.io/mejirosai2025/team1/">チーム1「めじろじっく」</a>
