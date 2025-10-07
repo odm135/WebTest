@@ -436,6 +436,12 @@ h3 {
     }
 }
 
+.item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;   
+}
+
 
 /* ============================== トップページの各ページの説明セクション ============================== */
 
@@ -572,6 +578,38 @@ h3 {
         padding: 50px 20px;
         display: block;
     }
+}
+
+
+/* -------------------------- logic.html -------------------------- */
+
+.scroll {
+    overflow-x: auto;
+    margin-bottom: 40px;
+}
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 500px;
+    min-width: 350px;
+    text-align: center;
+}
+th, td {
+    padding: .5em 1em;
+    border: 2px solid #1C1B16;
+}
+th {
+    background: #9AC10C;
+    color: #1C1B16;
+    border-right: 2px solid #1C1B16;
+    border-top: 2px solid #1C1B16;
+}
+td {
+    background: #E6E6E6;
+}
+th:last-of-type {
+    border-right: 2px solid #1C1B16;
 }
 
 
