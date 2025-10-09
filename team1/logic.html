@@ -187,6 +187,162 @@
                                 </tbody>
                             </table>
                         </div>
+
+                        <h4>NOT回路<div class="h4_deco"></div></h4>
+                        <p>
+                            NOT回路は、その名の通り「否定」を意味する回路です。<br>
+                            つまり、「入力の状態を反対にする」働きを持っています。<br>
+                            <br>
+                            スイッチをONにすると豆電球は点かず、スイッチがOFFのときに豆電球が点く、そんな少し不思議な回路です。<br>
+                            ORゲートは、次のような形をしています。<br>
+                        </p>
+                        <img src="img/sample1.png" alt="">
+                        <p>
+                            そして、真理値表は以下のようになります。
+                        </p>
+
+                        <div class="scroll">
+                            <table>
+                                <caption>表4 NOTゲートの真理値表</caption>
+                                <thead>
+                                    <tr>
+                                        <th>A</th><th>X</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>0</td><td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td><td>0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <h3>応用ゲート</h3>
+                    <div class="item">
+                        <p>
+                            ここでは、基本ゲート（AND・OR・NOT）を組み合わせて作られた回路を紹介します。<br>
+                            これらは「応用ゲート」と呼ばれ、より複雑な論理や動きを実現するために使われます。<br>
+                            <br>
+                            実は、どの応用ゲートも基本ゲートだけで作ることが可能です。<br>
+                            つまり、AND・OR・NOTをうまく組み合わせることで、以下の応用的な回路を作り出すことができるのです。<br>
+                        </p>
+                        
+                        <h4>NAND回路<div class="h4_deco"></div></h4>
+                        <p>
+                            NAND回路は、AND回路の反対の動きをする回路です。<br>
+                            名前の通り、「NOT」と「AND」を組み合わせたものです。<br>
+                            つまり、ANDの結果を反転させる回路です。<br>
+                            <br>
+                            たとえば、スイッチが2つあるとき、両方のスイッチがONになったときだけ豆電球は消えて、<br>
+                            それ以外のとき（どちらかがOFFのとき）は豆電球が点くようになります。<br>
+                            <br>
+                            NANDゲートは、ANDゲートの後ろに小さな〇がついた形をしています。<br>
+                        </p>
+                        <img src="img/sample1.png" alt="">
+                        <p>
+                            そして、真理値表は以下のようになります。
+                        </p>
+
+                        <div class="scroll">
+                            <table>
+                                <caption>表5 NANDゲートの真理値表</caption>
+                                <thead>
+                                    <tr>
+                                        <th>A</th><th>B</th><th>X</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>0</td><td>0</td><td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0</td><td>1</td><td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td><td>0</td><td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td><td>1</td><td>0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4>NOR回路<div class="h4_deco"></div></h4>
+                        <p>
+                            NOR回路は、OR回路の反対の動きをする回路です。<br>
+                            名前の通り、「NOT」と「OR」を組み合わせたもので、ORの結果を反転させる働きを持っています。<br>
+                            <br>
+                            たとえば、スイッチが2つあるとき、どちらか1つでもスイッチがONになれば、OR回路では豆電球が点きますよね。<br>
+                            でも、NOR回路ではその逆で、どちらかがONになると豆電球は消え、両方がOFFのときだけ点くようになります。<br>
+                            <br>
+                            NORゲートは、ORゲートの後ろに小さな〇がついた形をしています。
+                        </p>
+                        <img src="img/sample1.png" alt="">
+                        <p>
+                            そして、真理値表は以下のようになります。
+                        </p>
+
+                        <div class="scroll">
+                            <table>
+                                <caption>表7 NORゲートの真理値表</caption>
+                                <thead>
+                                    <tr>
+                                        <th>A</th><th>B</th><th>X</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>0</td><td>0</td><td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0</td><td>1</td><td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td><td>0</td><td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td><td>1</td><td>0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4>NOT回路<div class="h4_deco"></div></h4>
+                        <p>
+                            NOT回路は、その名の通り「否定」を意味する回路です。<br>
+                            つまり、「入力の状態を反対にする」働きを持っています。<br>
+                            <br>
+                            スイッチをONにすると豆電球は点かず、スイッチがOFFのときに豆電球が点く、そんな少し不思議な回路です。<br>
+                            ORゲートは、次のような形をしています。<br>
+                        </p>
+                        <img src="img/sample1.png" alt="">
+                        <p>
+                            そして、真理値表は以下のようになります。
+                        </p>
+
+                        <div class="scroll">
+                            <table>
+                                <caption>表4 NOTゲートの真理値表</caption>
+                                <thead>
+                                    <tr>
+                                        <th>A</th><th>X</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>0</td><td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td><td>0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </section>
             </main>

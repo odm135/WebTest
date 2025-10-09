@@ -596,20 +596,15 @@ table {
     text-align: center;
 }
 th, td {
-    padding: .5em 1em;
+    padding: 0.5em 1em;
     border: 2px solid #1C1B16;
 }
 th {
     background: #9AC10C;
     color: #1C1B16;
-    border-right: 2px solid #1C1B16;
-    border-top: 2px solid #1C1B16;
 }
 td {
     background: #E6E6E6;
-}
-th:last-of-type {
-    border-right: 2px solid #1C1B16;
 }
 
 
