@@ -624,10 +624,15 @@ main {
 }
 
 .contents .links h3 {
-    text-align: center;
-    font-size: 1.5rem;
-    padding: 15px 0 0;
+    display: flex;                /* 子要素をflexにする */
+    justify-content: center;      /* 横方向：中央 */
+    align-items: center;          /* 縦方向：中央 */
+    text-align: center;           /* 複数行のとき中央寄せ維持 */
+    font-size: 1.3rem;
+    padding: 0 15px;
+    height: 3.4em;
 }
+
 
 .physics {
     color: #2f3b7e;
@@ -638,7 +643,7 @@ main {
 }
 
 .contents .links p {
-    padding: 15px 20px 20px;
+    padding: 0 20px 20px;
     line-height: 1.8rem;
 }
 
