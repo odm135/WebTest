@@ -374,6 +374,7 @@ h3 {
     border-radius: 16px;
     width: min(100% - 100px, 1000px);
     color: #1C1B16;
+    overflow-wrap: anywhere;
 }
 
 .item p {
