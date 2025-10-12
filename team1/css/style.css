@@ -424,6 +424,11 @@ h3 {
     background: transparent;
 }
 
+.item img {
+    display: block;
+    margin: 0 auto 40px;
+}
+
 @media (max-width: 640px) {
     h3 {
         font-size: 1.5rem;
@@ -434,12 +439,6 @@ h3 {
         padding: 20px 30px;
         width: min(100% - 50px, 1000px);
     }
-}
-
-.item img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 40px;   
 }
 
 
@@ -585,7 +584,6 @@ h3 {
 
 .scroll {
     overflow-x: auto;
-    margin-bottom: 40px;
 }
 table {
     margin: 0 auto;
@@ -594,6 +592,7 @@ table {
     max-width: 500px;
     min-width: 350px;
     text-align: center;
+    margin-bottom: 40px;
 }
 th, td {
     padding: 0.5em 1em;

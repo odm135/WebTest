@@ -68,10 +68,10 @@
                             例えば、Aをスイッチ、Xを豆電球として考えましょう。
                         </p>
 
-                        <img src="img/image1.png" alt="">
+                        <img src="img/image1.png" width="80%" alt="スイッチと豆電球の画像">
 
                         <p>
-                            スイッチ A を ON にすれば、当然ながら豆電球 X は点灯しますよね。
+                            スイッチ A を ON にすれば、当然ながら豆電球 X は点灯しますよね。<br>
                             このような「入力（A）と出力（X）の関係」を表にしたものが、真理値表です。
                         </p>
 
@@ -118,7 +118,7 @@
                             <br>
                             ANDゲートは、こんな形をしています。
                         </p>
-                        <img src="img/sample1.png" alt="">
+                        <img src="img/ANDgate.png" width="50%" alt="ANDゲートの記号の画像">
                         <p>
                             そして、真理値表は以下のようになります。
                         </p>
@@ -158,7 +158,7 @@
                             <br>
                             ORゲートは、次のような形をしています。
                         </p>
-                        <img src="img/sample1.png" alt="">
+                        <img src="img/ORgate.png" width="50%" alt="ORゲートの記号の画像">
                         <p>
                             そして、真理値表は以下のようになります。
                         </p>
@@ -196,7 +196,7 @@
                             スイッチをONにすると豆電球は点かず、スイッチがOFFのときに豆電球が点く、そんな少し不思議な回路です。<br>
                             ORゲートは、次のような形をしています。<br>
                         </p>
-                        <img src="img/sample1.png" alt="">
+                        <img src="img/NOTgate.png" width="50%" alt="NOTゲートの記号の画像">
                         <p>
                             そして、真理値表は以下のようになります。
                         </p>
@@ -242,7 +242,7 @@
                             <br>
                             NANDゲートは、ANDゲートの後ろに小さな〇がついた形をしています。<br>
                         </p>
-                        <img src="img/sample1.png" alt="">
+                        <img src="img/NANDgate.png" width="50%" alt="NANDゲートの記号の画像">
                         <p>
                             そして、真理値表は以下のようになります。
                         </p>
@@ -282,7 +282,7 @@
                             <br>
                             NORゲートは、ORゲートの後ろに小さな〇がついた形をしています。
                         </p>
-                        <img src="img/sample1.png" alt="">
+                        <img src="img/NORgate.png" width="50%" alt="NORゲートの記号の画像">
                         <p>
                             そして、真理値表は以下のようになります。
                         </p>
@@ -312,33 +312,82 @@
                             </table>
                         </div>
 
-                        <h4>NOT回路<div class="h4_deco"></div></h4>
+                        <h4>XOR回路<div class="h4_deco"></div></h4>
                         <p>
-                            NOT回路は、その名の通り「否定」を意味する回路です。<br>
-                            つまり、「入力の状態を反対にする」働きを持っています。<br>
+                            XOR回路は、「排他的論理和」とも呼ばれており、<br>
+                            「どちらか一方だけがONのときに出力がONになる」という特徴を持った回路です。<br>
                             <br>
-                            スイッチをONにすると豆電球は点かず、スイッチがOFFのときに豆電球が点く、そんな少し不思議な回路です。<br>
-                            ORゲートは、次のような形をしています。<br>
+                            たとえば、スイッチが2つあるとき、どちらか片方だけONにすると豆電球が点きます。<br>
+                            しかし、両方ONまたは両方OFFのときは、豆電球は点きません。<br>
+                            つまり、「AかBのどちらか一方がONのときに光る」それがXOR回路の動きです。<br>
+                            <br>
+                            XORゲートは、ORゲートの前にもう1本曲線がついた形をしています。
                         </p>
-                        <img src="img/sample1.png" alt="">
+                        <img src="img/XORgate.png" width="50%" alt="XORゲートの記号の画像">
                         <p>
                             そして、真理値表は以下のようになります。
                         </p>
 
                         <div class="scroll">
                             <table>
-                                <caption>表4 NOTゲートの真理値表</caption>
+                                <caption>表8 XORゲートの真理値表</caption>
                                 <thead>
                                     <tr>
-                                        <th>A</th><th>X</th>
+                                        <th>A</th><th>B</th><th>X</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>0</td><td>1</td>
+                                        <td>0</td><td>0</td><td>0</td>
                                     </tr>
                                     <tr>
-                                        <td>1</td><td>0</td>
+                                        <td>0</td><td>1</td><td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td><td>0</td><td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td><td>1</td><td>0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4>XNOR回路<div class="h4_deco"></div></h4>
+                        <p>
+                            XNOR回路は、XOR回路の反対の動きをする回路です。<br>
+                            名前の通り、「NOT」と「XOR」を組み合わせたもので、XORの結果を反転させる働きを持っています。<br>
+                            <br>
+                            つまり、XORでは「2つの入力が違うときにON」でしたが、XNORでは、2つの入力が同じときにONになります。<br>
+                            たとえばスイッチが2つあるとき、どちらもOFF、またはONなら豆電球が点き、片方だけONのときは点きません。<br>
+                            <br>
+                            XNORゲートは、XORゲートの後ろに小さな〇がついた形をしています。<br>
+                        </p>
+                        <img src="img/XNORgate.png" width="50%" alt="XNORゲートの記号の画像">
+                        <p>
+                            そして、真理値表は以下のようになります。
+                        </p>
+
+                        <div class="scroll">
+                            <table>
+                                <caption>表9 XNORゲートの真理値表</caption>
+                                <thead>
+                                    <tr>
+                                        <th>A</th><th>B</th><th>X</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>0</td><td>0</td><td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0</td><td>1</td><td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td><td>0</td><td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td><td>1</td><td>1</td>
                                     </tr>
                                 </tbody>
                             </table>

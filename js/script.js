@@ -15,7 +15,7 @@ const info_words = [
 	'<span class="info_words">print("Welcome!")</span>',
 	'<span class="info_words">n = input()</span>',
 	'<span class="info_words">System.out.println("OK");</span>',
-	'<span class="info_words">console.log("Yes")</span>;'
+	'<span class="info_words">console.log("Yes");</span>'
 ];
 
 // 物理分野の言葉
