@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI vs 人間</title>
+    <link rel="stylesheet" href="css/fff.css">
+    <link rel="icon" href="favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <header>
+        <div id="page_top"><a href="#"></a></div>
+        <h1>AI vs 人間</h1>
+        <nav id="navi">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="technology.html">技術調査</a></li>
+                <li>
+                    <font color="#6ABEDC"><a href="process.html">方法</a></font>
+                </li>
+                <li><a href="result.html">結果</a></li>
+                <li><a href="member.html">メンバー</a></li>
+                <li><a href="acknowledgment.html">謝辞</a></li>
+            </ul>
+        </nav>
+       
+    </header>
+    <main>
+        <h1>方法</h1>
+        <br>
+        <p>
+            ここでは、どのような手順でこのテーマを進めたかを紹介いたします。
+        </p>
+        <br>
+        <h1>1:最初に簡単なゲームをGeminiで作成する</h1>
+        <br>
+        <p>まず最初に元となる基礎のゲームを作成します。<br>
+            その時送ったプロンプトは以下の通りです。<br>
+アプリ製作（ゲーム）<br>
+
+<p>ターゲット層<br>
+
+ゲーム自体のターゲットは目白祭に来てくれた高校生以下<br>
+
+AIに入力したプロンプトなどは大学生以上<br></p>
+
+<p>ゲームの内容<br>
+
+制限時間内にどれだけ何かができるかその回数を競うゲーム。<br>
+
+何かと何かを交互に押すと動く<br>
+
+→例えばAが右足Bが左足で制限時間内になるべくスタート地点より遠くに行くなど<br></p>
+
+
+
+
+        </p>
+        <br>
+        <h1>2:作成したゲームを"もっと面白くしてみて"とGeminiに送る</h1>
+        <br>
+        <p>
+        次に作成した基礎的なゲームからAIが考える面白い要素を足してもらいます。<br>
+        今回はGeminiに”もっと面白くして”と5回聞きました。
+        
+        <br>
+        </p>
+        <br>
+        <h1>3:自分たちが面白いと感じる要素を書いたプロンプトをGeminiに送る</h1>
+        <br>
+        <p>
+            次に自分たちが面白いと思った要素を書いたプロンプトをGeminiに送りました。<br>
+        プロンプトは以下の通りです。</p>
+        
+    <p>
+    <span class="emphasis-red">1回目</span><br>
+    このコードに氷河を障害物として入れてください。<br>
+    その障害物はEnterでよけられるようにしてください。<br>
+    ABで進むのは変えなくて大丈夫です。スコアと距離は出してほしいです。<br>
+    ゲームをした後に最高記録だけ表示してほしいです。<br>
+    もし最高記録が更新された場合はそのことも表示してほしいです。
+    </p>
+         <p><span class="emphasis-red">2回目</span><br>
+        いまの状態だとジャンプでよけられないからもう少し氷河を小さくしてほしいです。<br>
+        氷河がただの四角だからもっといいものに変えてほしいです。<br>
+        床とペンギンが離れてるからちゃんとくっつけてほしいです。</p>
+
+        <p><span class="emphasis-red">3回目</span><br>
+        ペンギンは自動で動くようにしてほしいです。ABはいらなくなったので削除してください。<br>
+        氷河が出てくる間隔が狭すぎたのでもう少し広くしてほしいです。<br>
+        氷河は🧊にしてください。大きさはさっきのでちょうどいいです。<br></p>
+
+        <p><span class="emphasis-red">4回目</span><br>
+        背景がさみしいので雲を入れてください。<br>
+        時間制限なくして大丈夫です。無制限にしてください。<br>
+        ジャンプの滞空時間をちょっとだけ増やしてください。<br>        
+        剣を途中で出てきてそれに触れると5秒無敵になり<br>
+        氷河に触っても大丈夫なようにしてほしいです。<br>
+        300mごとにスピードアップしてほしいです。<br>
+        無敵になるときに背景に🌈を入れてほしいです。<br>
+        氷河の配置なんだけど1個ずつで300mおきにしてください。<br></p>
+        
+        <p><span class="emphasis-red">5回目</span><br>
+        後ろの方も氷河が出てくるのランダム性を入れてほしいです<br>
+        スピードもうちょっとだけあげてください</p>
+        
+
+        </p>
+        <br>
+        <h1>4:2で作成したゲームでゲームとして成り立っていないところを<br>
+            修正するプロンプトを送る</h1>
+        <br>
+        <p>プロンプトは以下の通りです。
+            <p><span class="emphasis-red">1回目</span><br>
+            ゲーム性をよりわかりやすくするため、<br>
+            無敵ポーションと回復ハートの2つの新しいアイテムを追加してください<br>
+            無敵ポーション (🧪): このアイテムを取ると、一時的にペンギンが無敵になり、<br>
+                                氷のブロックにぶつかってもライフが減らなくなるようにしてください。<br>
+                
+            回復ハート (❤️): このアイテムを取ると、ライフを1つ回復できるようにしてください。<br>
+                           ライフが最大値に達している場合は効果がないようにしてください。<br>
+            
+            <p><span class="emphasis-red">2回目</span><br>
+            ペンギンが表示されなくなってしまったことと氷の位置が明らかによけることのできない<br>
+            位置にありゲームとして成り立っていないので直してください<br>
+            <p><span class="emphasis-red">3回目</span><br>
+            修正してほしいところは自分が操作するものとライバルになるものがただの丸なので<br>
+            ペンギン🐧やウサギ🐇などにしてほしいです<br>
+            あと氷の出てくる回数や上下に同時に出てきてしまうことなどをやめてほしいです<br>
+            <p><span class="emphasis-red">4回目</span><br>
+            今の設定だとAIしかスコア（星）が取れないようになっているので<br>
+            直してほしいです例えばAIが星でプレイヤーが🌈など<br>
+            AIが3回以上氷にぶつかってもゲームオーバーにならないのは良くないので修正して下さい<br>
+            ウサギなのですが氷が近くなるとバグのようにものすごい高速で<br>
+            上下に動き出すのでそれをやめて下さい<br>
+
+        </p>
+ <br>
+        <h1>5:CodePenでコードを実行し3つのゲームを比較する</h1>
+        <br>
+        <p>
+        今までGeminiに送って作成してもらったコードを実行し比較します。
+        </p>
+        </p>
+        <br>
+
+    </main>
+    <footer>
+        <a href="https://mcm-www.jwu.ac.jp/~mathphys/mejirosai/index.html">目白祭のトップページへ戻る</a>
+    </footer>
+</body>
+
+</html>

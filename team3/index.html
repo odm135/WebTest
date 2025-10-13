@@ -1,10 +1,401 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <title>team3</title>
-    </head>
-    <body>
-        team3
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高齢者用防災アプリ「つながりびより」</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/Catbot_icon_face.png" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>高齢者用防災アプリ「つながりびより」</h1>
+            <!-- <h1>アプリ開発ブートキャンプ 作品展示</h1> -->
+            <nav>
+                <ul>
+                    <li><a href="javascript:void(0)" class="nav-link active" onclick="showSection('home')">HOME</a></li>
+                    <li><a href="javascript:void(0)" class="nav-link" onclick="showSection('process')">開発プロセス</a></li>
+                    <li><a href="javascript:void(0)" class="nav-link" onclick="showSection('overview')">アプリの概要</a></li>
+                    <li><a href="javascript:void(0)" class="nav-link" onclick="showSection('members')">メンバー</a></li>
+                    <li><a href="javascript:void(0)" class="nav-link" onclick="showSection('thanks')">謝辞</a></li>
+                    <li><a href="javascript:void(0)" class="nav-link" onclick="showSection('references')">参考文献</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HOMEセクション -->
+        <section id="home" class="content-section active">
+            <div class="content-box">
+                <h2>はじめに</h2>
+                
+                <div class="section-content">
+                    <!-- <p>私たちは女子大学生ICT駆動ソーシャルイノベーションコンソーシアム(WUSIC)が主催するアプリ開発ブートキャンプに参加しました。</p>
+                    <p>テーマ</p>
+                    <h4>「ボーダレス ~多様な人々をつなぐインクルーシブアプリ~」</h4>
+                    <p>をもとに、7日間にかけてアイデアソン（アイデア＋マラソン）とハッカソン（ハック＋マラソン）を行いました。</p>
+                    <p>私たちは、アイディアだけでなく、機能やデザインにも「ボーダレス」の想いを込めて</p>
+                    <h4>高齢者用防災アプリ「つながりびより」</h4>
+                    <p>というアプリを作成しました。<br><br>この子はつながりびよりに出てくる自作キャラクター、「キャットボット先生」です。</p>
+                    <img src="images/Catbot_icon.png" alt="catbot"> -->
+                    <p>私たちは、高齢者の災害への備えと、実際に災害時の対策をねらいとして</p><h4>高齢者用防災アプリ「つながりびより」</h4><p>を開発しました！<br><br>
+                    このアプリは、WUSIC（女子大学生ICT駆動ソーシャルイノベーションコンソーシアム）が開催する
+                        「アプリ開発ブートキャンプ」の中で、企画・立案し、設計・開発しました。</p><br>
+                    
+                
+                    <h3>アプリ開発ブートキャンプ</h3>
+                    <p>テーマ</p>
+                    <h4>「ボーダレス ~多様な人々をつなぐインクルーシブアプリ~」</h4>
+                    <p>をもとに、7日間にかけてアイデアソン（アイデア＋マラソン）とハッカソン（ハック＋マラソン）を行いました。</p>
+                    <p>私たち「チーム　ねこじゃが」は、アイディアだけでなく、機能やデザインにも「ボーダレス」の想いを込めて<strong>高齢者用防災アプリ「つながりびより」</strong>というアプリを作成しました。<br>アプリの詳細は「アプリの概要」ページをご覧ください。<br><br>この子はつながりびよりに出てくる自作キャラクター、「キャットボット先生」です。</p>
+                
+                    <img src="images/Catbot_icon.png" alt="catbot">
+                </div> 
+                <h3>WUSICとは</h3>
+                <p>WUSICは、大学・文理の垣根を超えて、プログラミングを輪に学びの輪を広げているコンソーシアムです。本コンソーシアムは、高度情報化したSociety5.0時代に向け、全ての人にICTリテラシーが求められる社会を牽引する女性リーダーの育成を目指しています。</p>
+                <div class="button-container">
+                    <a href="https://wusic.jp/" class="url-button" target="_blank" rel="noopener noreferrer">
+                        WUSIC公式HPはこちら
+                    </a>
+                </div>
+                <h3>Monaca Education</h3>
+                <p>Monaca Educationは、教育機関向けのプログラミング学習プラットフォームです。</p>
+                <p>私たちはこのサービスを活用し、チームで共同開発を行いました。</p>
+                <div class="button-container">
+                    <a href="https://edu.monaca.io/" class="url-button" target="_blank" rel="noopener noreferrer">
+                        Monaca EducationHPはこちら
+                    </a>
+                </div>
+                <h3>Figma</h3>
+                <p>Figma（フィグマ）は、Webブラウザ上でリアルタイムに共同編集できるデザインツールです。</p>
+                <p>私たちはこのFigmaを用いて、アプリのUIデザインや画面構成を設計しました。</p>
+                <div class="button-container">
+                    <a href="https://www.figma.com/ja-jp/" class="url-button" target="_blank" rel="noopener noreferrer">
+                        FigmaHPはこちら
+                    </a>
+                </div>
+                <!-- <div class="section-content">
+                    <p>
+                        私たちは、女子大学生ICT駆動ソーシャルイノベーションコンソーシアム（WUSIC）が主催する「アプリ開発ブートキャンプ」に参加し、スマートフォン用のアプリ開発に挑戦しました。今年のテーマは「ボーダレス ~多様な人々をつなぐインクルーシブアプリ~」。私たちは、アイディアだけでなく、機能やデザインにも「ボーダレス」の想いを込めてアプリを作成しました。
+                    </p>
+                </div> -->
+            </div>
+        </section>
+
+        <!-- 開発過程セクション -->
+        <section id="process" class="content-section">
+            <div class="content-box">
+                <h2>開発プロセス</h2>
+                <div class="section-content">
+                    <!-- <div class="feature-item">
+                            <div class="feature-text">
+                            <h3>Day1～Day2　アイデアソン</h3>
+                            <p>Miroを使用してアイデア出しを行いました。質より量を重視して皆で意見を出し合いました。私たちは、高齢者のデジタルデバイド（情報格差）に焦点を当てて意見を深堀していきました。<br></p>
+                            </div>
+                            <img src="images/miro.webp" alt="メンバー2">
+                    </div> -->
+                    <p>WUSICアプリ開発ブートキャンプは、トータル7日間かけてモバイルアプリを企画、開発します。<br>
+                        今回私たちは、以下の流れに沿ってアプリ開発を行いました。</p>
+                    <h3>Day1～Day2　アイデアソン（大妻女子大学千代田キャンパス）</h3>
+                    <p>アイデアソンとは、「アイデア（Idea）」と「マラソン（Marathon）」を組み合わせた造語で、特定のテーマについて参加者がチームを組み、短時間で集中的に新しいアイデアを生み出す取り組みです。
+                    私たちは今回、Miroを使用してアイデア出しを行い、質より量を重視して積極的に意見を出し合いました。
+                    その中で、特に「高齢者のデジタルデバイド（情報格差）」に焦点を当て、課題や解決策を深掘りしていきました。<br>
+                    <br></p>
+                    <img src="images/miro.webp" alt="メンバー2">
+                    <p>また、限られた時間の中で考えるアイデアは、最初は物足りなく感じることもありましたが、時間制限があったからこそ集中でき、メリハリをつけて良い発想を生み出すことができました。<br></p>
+                    <h3>Day3　デザイン勉強（大妻女子大学千代田キャンパス）</h3>
+                    <p>この日は、富士通株式会社の方に、デザインツール「Figma」の使い方とデザインの基本についてご指導いただきました。
+                    色の使い方やユニバーサルデザインの考え方など、実践的な内容を学ぶことができました。
+                    下の写真は、私たちがFigmaで作成した途中段階のデザイン案です。</p>
+                    <img src="images/Figma.webp" alt="Figma">
+                    <h3>Day4～Day7　アプリ開発（日本女子大学目白キャンパス）</h3>
+                    <p><!-- <p>これまでの3日間で考えたアイデアをもとに、実際の開発を進めました。 -->
+                        アイデアソンで考えた内容をもとに、画面と機能を設計し、HTML、CSS、javascript、さらには大規模言語モデル（LLM）のAIであるGeminiのAPIや、Google Apps Scriptを活用して、アプリ開発を行いました。<br>
+                        私たちは、1〜3日目でほとんどの開発を終え、4日目には発表準備に取り組みました。
+                        途中、メンバーの体調不良などのトラブルもありましたが、無事に予定どおり進めることができました。
+                        これまで一日中ひとつの開発に集中して取り組む経験がなかったため、体力的にも精神的にも大変でした。                        しかし、３人で意見を出し合い協力しながら楽しく最後までやり遂げることができました。</p>
+                    <h3>Day8　最終発表（富士通株式会社）</h3>
+                    <p>富士通株式会社の本社に伺い、最終発表を行いました。発表は7分、質疑応答も7分という短い時間でしたが、あっという間に感じるほど充実した時間でした。<br></p>
+                    <h4>結果、私たちは全８グループの中で見事第１位になることができました！！</h4>
+                    <p>このわずか8日間で、本当に多くのことを学び、一生忘れられない経験となりました。また、たくさんの方々から温かいアドバイスやご支援をいただき、感謝の気持ちでいっぱいです。
+                        <br>
+                        そして何よりも、最後まで一緒に走り抜いた仲間の存在があったからこそ、ここまで頑張ることができました。本当に素晴らしい経験でした。
+
+                    </p>
+                    <img src="images/syoujyou.jpg" alt="syoujyou">
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- アプリの概要セクション -->
+        <section id="overview" class="content-section">
+            <div class="content-box">
+                <h2>アプリの概要</h2>
+                <div class="section-content">
+                    <h3>アプリ名</h3>
+                    <!-- <img src="images/aikon.png" alt="メンバー2"> -->
+                    <h4>つながりびより～高齢者でも使える災害時用アプリ～</h4>
+                    <img src="images/aikon.png" alt="メンバー2">
+                    <br>
+                    <h3>概要</h3>
+                    <p>
+                    「つながりびより」は、高齢者のデジタルデバイド（情報格差）や社会的孤立を解消し、
+                    災害時にも“つながり”を絶やさないことを目的に開発された防災コミュニティアプリです。<br>
+
+                    コンセプトは<strong>「いつもともしも」</strong>。<br>
+                    平常時にも使える機能を通して、もしもの時にも安心して使える仕組みを目指しました。<br>
+
+                    災害時の市民同士の助け合いの大切さに注目し、
+                    「スマホ操作に不安がある高齢者でも使えること」を最優先に設計しています。<br>
+
+                    大きくて押しやすいボタン、はっきりとした色使い、ユニバーサルデザインのフォントなど、
+                    “ボーダレスでやさしいデザイン”を追求しました。<br>
+
+                    高齢者が日常でも災害時でも安心して使える、
+                    「いつも」と「もしも」をつなぐアプリを目指しています。<br>
+                    </p>
+                    <div class="button-container">
+                    <a href="https://www.canva.com/design/DAGwqaGRwzE/KGxGHwOFyxvlyzxwy2MAYw/view?utm_content=DAGwqaGRwzE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9d23a3a232" class="url-button" target="_blank" rel="noopener noreferrer">
+                        つながりびより公開スライド
+                    </a>
+                    </div>
+                    
+                    <h3>主な機能</h3>
+                    <section class="feature">
+                        <div class="feature-item">
+                            <div class="feature-text">
+                            <h3>・ホームページ</h3>
+                            <p>3つの機能<strong>安否確認、すれちがい、チャットボット</strong>のページに遷移することができます。高齢者でも見やすく使いやすい、色使いや文字の大きさに工夫しました。<br><br></p>
+                            </div>
+                            <img src="images/index.png" alt="安否確認画面">
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-text">
+                            <h3>・安否確認（もしも）</h3>
+                            <p>災害時、自分の安否をワンタップで登録することができます。<br>
+                            地域単位で住民の状況を確認でき、助けが必要な人を早く見つけられます。<br>
+                            monaca上のデータベースに自分の安否を登録して、地域を選択することで自分や家族近所の住民の安否を確認することができます。<br></p>
+                            </div>
+                            <img src="images/anpi.png" alt="安否確認画面">
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-text">
+                            <h3>・すれちがい通信（いつも）</h3>
+                            <p>日常のすれ違いを活用し、近所の人や家族と自然につながれる機能。<br>
+                        会話がなくても「交流を感じられる」しくみで、地域の絆を育みます。<br>
+                        スマホのGPSを読み取り、一定の範囲内に同じアプリを持った人が入った場合自分の選択した
+                        メッセージが相手に届き、相手のメッセージが自分のところに届くようになります。<br></p>
+                            </div>
+                            <img src="images/suretigai.png" alt="すれちがい画面">
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-text">
+                            <h3>・チャットボット（いつも＆もしも）</h3>
+                            <p>AI「キャットボットさん」が、平常時も災害時もあなたをサポートします。<br>
+                        音声入力に対応しているため、文字入力が苦手な方でも安心して利用できます。<br>
+                        下の「緊急用ボタン」を押すと、チャットボットが災害時モードに切り替わり、
+                        落ち着きを促しながら安否確認や行動の案内を行います。<br>
+                        Googleの生成AI「Gemini」のAPIを利用しており、
+                        状況に応じて瞬時に適切な返答を生成します。
+                        また、平常時用と緊急時用で異なるプロンプト（会話設定）を使い分けることで、
+                        その時に最もふさわしいサポートを提供します。</p>
+                            </div>
+                            <img src="images/catbot.png" alt="チャットボット画面">
+                            <img src="images/kinkyu.png" alt="チャットボット画面">
+                        </div>
+                        </section>
+
+                    <!-- <p> １．安否確認（もしも）<br>
+
+                        災害時、自分の安否をワンタップで登録。<br>
+                        地域単位で住民の状況を確認でき、助けが必要な人を早く見つけられます。<br><br>
+
+                        2.すれちがい通信（いつも）<br>
+
+                        日常のすれ違いを活用し、近所の人や家族と自然につながれる機能。<br>
+                        会話がなくても「交流を感じられる」しくみで、地域の絆を育みます。<br><br>
+
+                        3.チャットボット（いつも＆もしも）<br>
+
+                        AI「キャットボットさん」が、平常時も災害時もサポート。<br>
+                        音声入力に対応し、操作が苦手な人でも安心して利用できます。<br>
+                        緊急時は落ち着きを促しながら、安否確認など次の行動を案内します。</p>
+                      -->
+                    <h3>技術スタック</h3>
+                    <ul class="tech-stack">
+                    <li><strong>フロントエンド：</strong>HTML5 / CSS3 / JavaScript（ES6+）、Onsen UI（モバイルUI）
+                        <br>― 大きなボタン・高コントラスト配色・ユニバーサルデザインのフォントを採用
+                    </li>
+                    <li><strong>開発基盤：</strong>Monaca Education（クラウドIDE・ビルド・実機確認）</li>
+                    <li><strong>端末・ブラウザAPI：</strong>Geolocation API（位置取得）、Web Speech API（音声入力）、LocalStorage（端末ID/一時保存）、Fetch API（通信）</li>
+                    <li><strong>バックエンド/データ：</strong>Google Apps Script（Web API）、Google スプレッドシート（すれちがいデータ管理）、MonacaクラウドDB（安否情報）</li>
+                    <li><strong>AI：</strong>Google Gemini API（生成AI）※平常用/緊急用でプロンプトを切り替え</li>
+                    <li><strong>デザイン/共同制作：</strong>Figma（UI設計）、Canva（公開スライド）</li>
+                    </ul>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- メンバーの概要セクション -->
+        <section id="members" class="content-section">
+            <div class="content-box">
+                <h2>チーム名：ねこじゃが</h2>
+                <div class="members-container">
+                    
+
+                    <!-- メンバー2 -->
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="images/miruku.jpg" alt="メンバー2">
+                            <!-- <div class="member-placeholder">画像</div> -->
+                        </div>
+                        <h3 class="member-name">りおまる</h3>
+                        <p class="member-role">役割・担当</p>
+                        <p class="member-description">
+                            すれちがい通信を担当。つながりびよりのデザインの多くを考えてくれ、アイコンに使われているキャットボット先生やあなたボットの生みの親。2年間、毎日欠かさずポケモンスリープをしている健康な人。
+                        </p>
+                    </div>
+
+                    <!-- メンバー3 -->
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="images/hanme.jpg" alt="メンバー3">
+                            <!-- <div class="member-placeholder">画像</div> -->
+                        </div>
+                        <h3 class="member-name">ののすけ</h3>
+                        <p class="member-role">役割・担当</p>
+                        <p class="member-description">
+                            AIチャットボットを担当。代表者。教職の授業を毎日頑張っている。文章を考えるのが上手。自作のメロンパンの歌がある。いつも一人だけ反対方向からやって来て降りる場所を間違えがち。知らんけど。知らんのかーい。
+                        </p>
+                    </div>
+                    <!-- メンバー1 -->
+                    <div class="member-card">
+                        <div class="member-image">
+                            <!-- 画像を入れる場合は以下のコメントを外してsrc属性に画像パスを指定 -->
+                            <img src="images/neruneko.jpg" alt="メンバー1">
+                            <!-- <div class="member-placeholder">画像</div> -->
+                        </div>
+                        <h3 class="member-name">ばばちよ</h3>
+                        <p class="member-role">役割・担当</p>
+                        <p class="member-description">
+                            安否確認を担当。ばりばりの物理コースなのに情報科目を多く履修してる人。今回も本業でないデータベースのプログラミングを必死に勉強して実現してくれた。特技はいつでもどこでも寝ること。カラオケはお昼寝タイムがある。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 謝辞セクション -->
+        <section id="thanks" class="content-section">
+            <div class="content-box">
+                <h2>謝辞</h2>
+                <div class="section-content">
+                    <p>
+                        この度のアプリ開発にあたり、多くの方々にご指導とご鞭撻を賜りました。<br>
+                        まず、貴重な学びの場を提供してくださった 女子大学生ICT駆動ソーシャルイノベーションコンソーシアム（WUSIC） の皆さまに心より感謝申し上げます。<br>
+                        また、開発を支えてくださった 協力企業の皆さま、そして熱心にご指導いただいた WUSICのメンターの方々に深く御礼申し上げます。<br>
+                        <br>
+                        アプリについて適切なご助言を賜りました、富士通株式会社様、アシアル株式会社様、株式会社ラックサイバーリンク様、大妻女子大学、津田塾大学、東京家政大学、東京女子大学の諸先生方に心より感謝申し上げます。<br>
+                        <br>
+                        そして、今回の挑戦を一番近くで支え、終始親身にご指導くださいました数物情報科学科　長谷川 治久先生に心より感謝申し上げます。
+                    </p>
+                    <p>
+                        皆さまのお力添えがあったからこそ、私たちはアプリを完成させることができました。心より感謝申し上げます。本当にありがとうございました。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 参考文献セクション -->
+        <section id="references" class="content-section">
+            <div class="content-box">
+                <h2>参考文献</h2>
+                <div class="section-content">
+                    <p>使用ツール</p>
+                    <p>
+                        Monaca Education / Figma / Google Apps Script（GAS） / Google スプレッドシート /
+                        Miro / ChatGPT / Google Gemini API
+                    </p>
+
+                    <h3>参考資料・サイト</h3>
+                    <ul class="references-list">
+                        <li>
+                        モバイル社会研究所「<a href="https://www.moba-ken.jp/project/seniors/seniors20240808.html" target="_blank" rel="noopener noreferrer">
+                        高齢者のスマートフォン利用実態調査（2024）</a>」
+                        </li>
+                        <li>
+                        総務省「<a href="https://www.soumu.go.jp/menu_news/s-news/01iicp01_02000111.html" target="_blank" rel="noopener noreferrer">
+                        情報通信白書2024：デジタルデバイド解消に向けた取組</a>」
+                        </li>
+                        <li>
+                        消防庁「<a href="https://www.fdma.go.jp/" target="_blank" rel="noopener noreferrer">
+                        災害対応能力の維持向上のための地域コミュニティのあり方に関する検討会報告書</a>」
+                        </li>
+                        <li>
+                        阪神・淡路大震災に関する救助統計資料（内閣府 防災情報のページ）
+                        </li>
+                        <li>
+                        WUSIC（女子大学生ICT駆動ソーシャルイノベーションコンソーシアム）
+                        <a href="https://wusic.jp/" target="_blank" rel="noopener noreferrer">公式サイト</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 アプリ開発ブートキャンプ. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // 全てのセクションを非表示
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // 全てのナビゲーションリンクのactiveクラスを削除
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // 指定されたセクションを表示
+            document.getElementById(sectionId).classList.add('active');
+
+            // クリックされたナビゲーションリンクにactiveクラスを追加
+            event.target.classList.add('active');
+
+            // ページトップにスクロール
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+    <script>
+        let lastScrollY = window.scrollY;
+        const header = document.querySelector("header");
+        
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > lastScrollY) {
+            // 下スクロール → ヘッダー隠す
+            header.classList.add("hide");
+          } else {
+            // 上スクロール → ヘッダー再表示
+            header.classList.remove("hide");
+          }
+          lastScrollY = window.scrollY;
+        });
+        </script>
+</body>
+
 </html>

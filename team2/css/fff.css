@@ -1,0 +1,385 @@
+.image-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px; /* Space between images */
+    padding: 0 20px; /* Adds padding to the left and right edges of the container */
+    align-items: center;
+}
+
+.image-grid img {
+    width: 40%; /* smaller: two images side-by-side */
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+/* main result images */
+.intro-img{
+    max-width: 520px;
+    width: 85%;
+    height: auto;
+    display: block;
+    margin: 12px auto;
+}
+.ai-prompt {
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 列のサイズを自動調整 */
+    grid-auto-rows: 200px; /* 行の高さを固定（必要に応じて調整） */
+    gap: 10px; /* 画像間の隙間を指定（任意） */
+}
+
+.ai-prompt img {
+    width: 100%; /* 画像を列にフィットさせる */
+    height: 100%; /* 画像を行にフィットさせる */
+    object-fit: cover; /* 画像の切り抜き方法を設定 */
+    object-position: center; /* 画像の中央を表示 */
+}
+img.icon {
+    width: 50px;  /* 必要に応じて調整 */
+    height: 50px; /* 必要に応じて調整 */
+    border-radius: 50%; /* 画像の角を完全に丸くする */
+    object-fit: cover; /* アスペクト比を保ちながら丸の中に収める */
+  }
+
+img.end-image{
+    display: block;
+    max-width: 600px;
+    width: 75%; /* smaller final image */
+    height: auto; /* 自動高さで比率を維持 */
+    object-fit: cover; /* 画像の切り抜き方法を設定 */
+    object-position: center; /* 画像の中央を表示 */
+    margin: 12px auto;
+}
+.end-img{
+    background-color: white;
+}
+img.intro-img{
+    width: 100%; /* 画像を列にフィットさせる */
+    height: auto; /* 画像を行にフィットさせる */
+    object-fit: cover; /* 画像の切り抜き方法を設定 */
+    object-position: center; /* 画像の中央を表示 */
+}
+@media (max-width: 768px) {
+    img.intro-img {
+        width: 100%;
+        height: auto; 
+        padding: 0; 
+    }
+    img.dora{
+        width: 100%; /* スマホ用：幅を100%に */
+        height: auto; /* 高さを自動調整 */
+        padding: 0; /* スマホ用：パディングをリセット */
+    }
+    .tech1 {
+        display: none; /* スマホ用に非表示 */
+    }
+}
+img.prompt-ex{
+    width: 30%; /* 画像を列にフィットさせる */
+    height: 30%; /* 画像を行にフィットさせる */
+    object-fit: cover; /* 画像の切り抜き方法を設定 */
+    object-position: center; /* 画像の中央を表示 */
+    padding: 0px 100px;
+}
+.refer{
+    flex: 1;
+    padding-top: 180px;
+}
+ul.refer{
+    padding-left: 15px;
+}
+.tech1{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Space between images */
+    padding: 0 20px; /* Adds padding to the left and right edges of the container */
+}
+.tech1 section {
+    width: 23%; /* Keeps the image size proportional */
+    height: auto;
+    object-fit: cover;
+    background-color: #D6EEF7;
+}
+
+.tech1 h4{
+    text-align: center;
+}
+
+.tech1 h5{
+    text-align: center;
+    font-weight: lighter;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover{
+    font-weight: bold;
+}
+
+
+/* reset */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* header{
+
+}  */
+.head {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+body {
+    background-color: #E8F8FC;
+    /* background-image: url('BGround.jpg'); */
+    background-size: cover;
+    /* ç”»åƒã‚’å…¨ä½“ã«åºƒã’ã‚‹ */
+    background-repeat: no-repeat;
+    /* ç”»åƒã‚’ç¹°ã‚Šè¿”ã—è¡¨ç¤ºã—ãªã„ */
+    background-position: center;
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+
+h1 {
+    background-color: #6ABEDC;
+    text-align: center;
+}
+
+li a {
+    display: block;
+}
+
+#navi ul {
+    display: flex;
+    list-style-type: none;
+}
+
+#navi li {
+    flex: 1;
+    font-weight: bold;
+    text-align: center;
+    /* padding-top: 20px; */
+    height: 30px;
+    background-color: #4A90A8;
+    transition: background-color 0.5s;
+    /*ãƒžã‚¦ã‚¹ã‚ªãƒ¼ãƒã§è‰²ãŒä½•ç§’ã§å¤‰ã‚ã‚‹ã‹ */
+    font-size: 20px;
+}
+
+#navi li:hover {
+    background-color: #BEEAF6;
+    transition: background-color 800ms;
+}
+
+a,
+a:hover,
+a:visited {
+    color: inherit;
+    /*ãƒ†ã‚­ã‚¹ãƒˆãŒãƒªãƒ³ã‚¯ã«ãªã‚‹ã¨ãã«é’ããªã‚‰ãªã„ã‚ˆã†ã«ã™ã‚‹*/
+}
+
+a {
+    text-decoration: none;
+    /*ãƒ†ã‚­ã‚¹ãƒˆãŒãƒªãƒ³ã‚¯ã«ãªã‚‹ã¨ãã«ç·šãŒã§ãªã„ã‚ˆã†ã«ã™ã‚‹*/
+
+}
+
+.Sushiki {
+    text-align: center;
+}
+
+/* .container{
+    display: flex;
+} */
+
+/* main {
+    height: 1800px;
+}*/
+/* aside{
+    width: 30%;
+    background-color: aqua;
+    height: 800px;
+} */
+
+/* ãƒˆãƒƒãƒ—ãƒšãƒ¼ã‚¸ã«æˆ»ã‚‹ã‚„ã¤
+.pagetop {
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    background: #fff;
+    border: solid 2px #000;
+    border-radius: 50%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    cursor: pointer;
+}
+  .pagetop__arrow {
+    display: block;
+    height: 10px;
+    width: 10px;
+    border-top: 3px solid #000;
+    border-right: 3px solid #000;
+    transform: translateY(20%) rotate(-45deg);
+} */
+h1 {
+    color: #eaf4fc;
+}
+
+p {
+    text-align: center;
+    font-size: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+/* tighten spacing inside main to avoid large gaps */
+main h1 {
+    margin-top: 18px;
+    margin-bottom: 8px;
+}
+
+main p {
+    margin-top: 8px;
+    margin-bottom: 18px;
+}
+
+
+
+
+footer {
+    background-color: #4A90A8;
+    text-align: center;
+    color: white;
+    width: 100%;
+}
+
+/* ã‚¹ãƒžãƒ›ç”¨ */
+@media screen and (max-width: 650px) {
+    img {
+        width: 90%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    #navi li {
+        flex: 1;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 20px;
+        height: 40px;
+        background-color: #3b7ffc;
+        transition: background-color 0.5s;
+        /*ãƒžã‚¦ã‚¹ã‚ªãƒ¼ãƒã§è‰²ãŒä½•ç§’ã§å¤‰ã‚ã‚‹ã‹ */
+    }
+
+    .Kekka {
+        display: block;
+        width: auto;
+    }
+
+}
+
+
+
+/*ãƒˆãƒƒãƒ—ã¸æˆ»ã‚‹ãƒœã‚¿ãƒ³*/
+#page_top {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    right: 0;
+    bottom: -50px;
+    background: #429aff;
+    opacity: 0.6;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+#page_top a {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+}
+
+#page_top a::before {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f102';
+    font-size: 25px;
+    color: #fff;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: -5px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+}
+
+/* ãµã‚ã£ã¨è¡¨ç¤º */
+/*==================================================
+ãµã‚ã£
+===================================*/
+
+
+/* fadeUp */
+
+.fadeUp {
+    animation-name: fadeUpAnime;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes fadeUpAnime {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã‚’ã—ãŸã‚‰å‡ºç¾ã™ã‚‹è¦ç´ ã«ã¯ã˜ã‚ã«é€éŽ0ã‚’æŒ‡å®šã€€*/
+
+.fadeUpTrigger {
+    opacity: 0;
+}
+
+/* red bold emphasis */
+.emphasis-red{
+    color: #c62828; /* deep red */
+    font-weight: bold;
+}
+
+/* unified photo styling */
+.photo{
+    width: 100%;
+    max-width: 420px;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
