@@ -351,7 +351,6 @@ a {
     background-color: #9AC10C;
 }
 
-
 h3 {
     font-size: 2rem;
     width: 400px;
@@ -439,6 +438,21 @@ h3 {
     .item {
         padding: 20px 30px;
         width: min(100% - 50px, 1000px);
+    }
+
+    .page_name {
+        font-size: 2rem;
+        gap: 10px;
+    }
+
+    .page_name::before,
+    .page_name::after {
+        flex: 0 0 50px;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        padding: 20px 30px;
     }
 }
 
@@ -582,6 +596,9 @@ h3 {
 
 
 /* -------------------------- logic.html -------------------------- */
+.gateimg {
+    width: 50%;
+}
 
 .scroll {
     overflow-x: auto;
@@ -605,6 +622,16 @@ th {
 }
 td {
     background: #E6E6E6;
+}
+
+@media (max-width: 640px) {
+    .gateimg {
+        width: 100%;
+    }
+
+    table {
+        min-width: 200px;
+    }
 }
 
 
