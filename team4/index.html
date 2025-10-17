@@ -7,10 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header class="site-header">
         <div class="site-title">PLATEAUで進化するスマートルート</div>
+          <button class="menu-toggle" aria-label="メニュー"aria-expanded="false">
+                <span></span><span></span><span></span>
+          </button>
         <nav class="navbar">
-            <a href="index.html" class="nav-button current">タイトル・概要</a>
+            <a href="index.html" class="nav-button">タイトル・概要</a>
             <a href="plateau.html" class="nav-button">PLATEAUとは</a>
             <a href="proposal.html" class="nav-button">提案活用案</a>
             <a href="members.html" class="nav-button">メンバー紹介</a>
@@ -21,17 +24,53 @@
     <main class="container">
         <section class="content-box">
             <h2>PLATEAUで進化するスマートルート</h2>
-            <p class="section-text">
-                ここに、研究全体の概要や、ポスター発表の**導入部分**にあたる文章を入力してください。
-                研究の目的や、なぜこのテーマを選んだのかなど、訪問者が最初に興味を持つような内容を簡潔にまとめましょう。
-                <br><br>
-                **例：** 本研究では、国土交通省が進める「Project PLATEAU」で公開されている3D都市モデルデータを活用し、〇〇市を舞台とした新しい防災シミュレーションシステムの開発を提案します。
+            <p class = "lead">
+                私たちは、国土交通省が推進する3D都市モデル「Project PLATEAU」を活用したブートキャンプ・アイデアソンに参加しました。都市の課題をデータで解決するアイデアをチームで検討し、その成果を本サイトで紹介します。
             </p>
+
+            <div class="section-text">
+                <p>
+                    私たちのチームは、「ここは回避したい」という思いに応え、<strong class="nowrap">雨を避ける・危険を避ける・体重増加を抑える・遅刻を防ぐ</strong>の4モードを切り替えられるマップを提案しました。
+                </p>
+            </div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2025年度 日本女子大学理学部数物情報科学科 †精鋭部隊†</p>
     </footer>
+
+    <script>
+    const header   = document.querySelector('.site-header');
+    const toggle   = document.querySelector('.menu-toggle');
+    const navbar   = document.querySelector('.navbar');
+
+    toggle.addEventListener('click', () => {
+        const open = header.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+    });
+
+  // メニュー外クリックで閉じる
+    document.addEventListener('click', (e) => {
+        if (!header.contains(e.target)) header.classList.remove('open');
+    });
+
+  // リンク押したら閉じる
+    navbar.addEventListener('click', (e) => {
+        if (e.target.closest('a')) header.classList.remove('open');
+    });
+
+    (() => {
+        const here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        document.querySelectorAll('.navbar .nav-button').forEach(a => {
+            const href = (a.getAttribute('href') || '').toLowerCase();
+            const isCurrent = href === here || (href === 'index.html' && (here === '' || here === '/'));
+            a.classList.toggle('current', isCurrent);
+            if (isCurrent) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
+        });
+    })();
+    </script>
+
+
 </body>
 </html>

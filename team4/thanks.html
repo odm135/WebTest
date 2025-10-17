@@ -7,14 +7,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header class="site-header">
         <div class="site-title">PLATEAUで進化するスマートルート</div>
+          <button class="menu-toggle" aria-label="メニュー"aria-expanded="false">
+                <span></span><span></span><span></span>
+          </button>
         <nav class="navbar">
             <a href="index.html" class="nav-button">タイトル・概要</a>
             <a href="plateau.html" class="nav-button">PLATEAUとは</a>
             <a href="proposal.html" class="nav-button">提案活用案</a>
             <a href="members.html" class="nav-button">メンバー紹介</a>
-            <a href="thanks.html" class="nav-button current">謝辞</a>
+            <a href="thanks.html" class="nav-button">謝辞</a>
         </nav>
     </header>
 
@@ -22,10 +25,18 @@
         <section class="content-box">
             <h2>謝辞</h2>
             <p class="section-text">
-                研究を支えてくださった方々への感謝の言葉を入力してください。
-                指導教員の先生、研究室のメンバー、データ提供元（例: 国土交通省 Project PLATEAU）、協力者の方々などに触れると良いでしょう。
-                <br><br>
-                **例：** 本研究は、[指導教員名] 先生の多大なるご指導とご支援のもとに行われました。心より感謝申し上げます。また、Project PLATEAUで公開されている3D都市モデルデータを利用させていただきました。
+
+                本企画は、PLATEAUブートキャンプのアイデアソンに参加した経験をきっかけに生まれました。<br>
+                チームでの話し合いや試作を重ねる中で、多くの学びと発見がありました。<br><br>
+
+                日頃から温かくご指導くださる日本女子大学理学部数物情報科学科の先生方、そしてPLATEAU関係者の皆さまに心より感謝申し上げます。<br>
+                また、3D都市モデルのデータを提供してくださった国土交通省 Project PLATEAUの皆さまにも、この場をお借りしてお礼申し上げます。<br><br>
+
+                そして何より、一緒に企画を進めてきたチームメンバーの努力と協力があったからこそ、ここまで形にすることができました。<br>
+                試行錯誤を楽しみながら作り上げたこの成果を、多くの方に見ていただけたら嬉しいです。<br><br>
+            
+                <br>
+            <strong>†精鋭部隊†</strong>
             </p>
         </section>
     </main>
@@ -33,5 +44,38 @@
     <footer>
         <p>&copy; 2025年度 日本女子大学理学部数物情報科学科 †精鋭部隊†</p>
     </footer>
+
+        <script>
+    const header   = document.querySelector('.site-header');
+    const toggle   = document.querySelector('.menu-toggle');
+    const navbar   = document.querySelector('.navbar');
+
+    toggle.addEventListener('click', () => {
+        const open = header.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+    });
+
+  // メニュー外クリックで閉じる
+    document.addEventListener('click', (e) => {
+        if (!header.contains(e.target)) header.classList.remove('open');
+    });
+
+  // リンク押したら閉じる
+    navbar.addEventListener('click', (e) => {
+        if (e.target.closest('a')) header.classList.remove('open');
+    });
+
+    (() => {
+        const here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        document.querySelectorAll('.navbar .nav-button').forEach(a => {
+            const href = (a.getAttribute('href') || '').toLowerCase();
+            const isCurrent = href === here || (href === 'index.html' && (here === '' || here === '/'));
+            a.classList.toggle('current', isCurrent);
+            if (isCurrent) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
+        });
+    })();
+
+
+    </script>
 </body>
 </html>

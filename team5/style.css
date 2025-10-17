@@ -1,0 +1,638 @@
+/* リセットCSS - シンプルなデザインには最低限のリセットが有効 */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* paddingやborderをwidth/heightに含める */
+}
+
+body {
+    /* 🚀 修正箇所：フォントファミリーの指定 */
+    /* UDデジタル教科書体シリーズを最優先で指定 */
+    font-family: "UD デジタル 教科書体 N", "UD Digi Kyokasho N", "UD デジタル 教科書体", 
+                 "游ゴシック", "YuGothic", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    
+    line-height: 1.6;
+    color: #333;
+    padding-top: 120px; /* height: 100px に合わせたpadding-top */
+    background-color: #f4f4f4;
+}
+/* ... 以下のCSSはそのまま ... */
+
+
+/* ----------------------------------
+ * 固定ヘッダー (展示タイトルとナビゲーション)
+ * ---------------------------------- */
+.fixed-header {
+    position: fixed; /* 画面に固定 */
+    top: 0; /* 上端に配置 */
+    left: 0;
+    width: 100%;
+    height: 100px; /* 高さ */
+    background-color: #9fe5ff; /* ヘッダーの背景色 */
+    color: #333;
+    display: flex; /* Flexboxで中身を配置 */
+    justify-content: flex-start; /* 左寄せ */
+    gap: 50px;
+    align-items: center; /* 垂直方向中央揃え */
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 軽い影で浮き出し感を出す */
+    z-index: 1000; /* 他の要素より手前に表示 */
+}
+
+.fixed-header h1 {
+    font-size: 2.0em;
+    font-weight: bold;
+}
+
+.fixed-header nav ul {
+    list-style: none; /* リストの点マークを非表示 */
+    display: flex; /* 横並び */
+}
+
+.fixed-header nav ul li {
+    margin-left: 15px;
+}
+
+.fixed-header nav ul li a {
+    text-decoration: none; /* 下線を非表示 */
+    color: #007bff; /* リンク色 */
+    font-size: 1.5em;
+    font-weight: 800;
+    padding: 5px 8px;
+    transition: color 0.3s;
+}
+
+.fixed-header nav ul li a:hover {
+    color: #fa62ff; /* ホバー時の色 */
+}
+
+/* ----------------------------------
+ * メインコンテンツ - ヒーローセクション (大きなタイトルとキャッチフレーズ)
+ * ---------------------------------- */
+
+#hero {
+    /* 🚀 修正点1: PCでの高さ設定 */
+    /* 画面の高さ (100vh) の約1/3を設定します (30vh)。
+       高さの確保として、固定値 (例: 350px) も設定します。 */
+    min-height: 30vh;
+    height: 350px; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #ebbdbd; /* 背景を少し変えて目立たせる */
+    padding: 20px 20px; /* 上下のパディングを調整（高さを抑えるため） */
+}
+
+.hero-content h2 {
+    font-size: 3.5em; /* 大きなタイトル */
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.hero-content .catchphrase {
+    font-size: 1.5em;
+    color: #e74c3c; /* 目を引く色 */
+    
+    /* 🚀 修正・追記箇所 */
+    font-weight: bold; /* bold に変更または追記 */
+    
+    margin-top: 20px;
+    padding: 5px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: inline-block;
+}
+
+/* ==================================
+ * メンバーページのHeroセクション背景画像
+ * ================================== */
+
+#members-hero {
+    min-height: 30vh;
+    height: 350px; 
+    
+    /* 🚀 修正点1: 背景画像の設定を削除 (<img>タグで制御するため) */
+    /* background-image: url('images/members.png'); */
+    /* background-size: auto 100%; */
+    /* background-position: bottom; */
+    /* background-repeat: repeat; */
+
+    /* コンテンツと画像を重ねるための設定 */
+    position: relative; /* 子要素のabsolute基準 */
+    overflow: hidden; /* 画像がはみ出さないように */
+
+    /* テキストの位置決めは hero-content で行うため、ここでは align-items は center に戻す */
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+    padding: 20px 20px;
+    background-color: #ffffff; /* 白背景を維持 */
+}
+
+/* 🚀 追加: 背景として使う画像要素を配置 */
+.background-images {
+    position: absolute; /* 親要素(#members-hero)を基準に配置 */
+    bottom: 0; /* 下に寄せる */
+    left: 0;
+    width: 100%;
+    height: 100%; /* Heroセクションの高さに合わせて広げる */
+    display: flex; /* 画像を横並びにする */
+    justify-content: center;
+    align-items: flex-end; /* 画像を下端に寄せる */
+    pointer-events: none; /* クリックイベントを透過 */
+    z-index: 0; /* コンテンツの下に配置 */
+}
+
+.background-images .bg-image {
+    height: 100%; /* 親要素(background-images)の高さいっぱいに */
+    width: auto; /* 縦横比を維持 */
+    object-fit: contain; /* 画像全体が見えるように */
+    margin: 5em 10em 1em 10em; /* 画像間の隙間をなくす (必要であれば調整) */
+}
+
+/* 🚀 修正点2: 中央の画像を非表示にする */
+.background-images .center-image {
+    display: none; 
+}
+
+/* Heroコンテンツを画像の上に配置するための修正（前回の設定を調整） */
+.hero-content {
+    /* コンテンツを画像の上に重ねるための設定 */
+    position: relative; /* z-indexが効くように */
+    z-index: 1; /* 背景画像より手前に表示 */
+    
+    width: 100%; 
+    text-align: center; 
+    
+    /* Heroセクションの中央から少し上にずらす */
+    margin-top: -80px; /* 値は画面を見ながら調整 */
+    color: #2c3e50; /* テキストが見やすい色に */
+}
+
+/* スマホ対応: 画像が多すぎる場合は調整 */
+@media (max-width: 768px) {
+    .background-images .bg-image {
+        height: 80%; /* スマホでは少し小さくするなど調整 */
+    }
+    .background-images .left-image,
+    .background-images .right-image {
+        /* スマホで横幅が足りない場合、画像を1つにするか、小さくする */
+        /* 例えば、左右どちらかを非表示にする */
+        /* display: none; */ 
+        /* もしくは、サイズを小さくする */
+        height: 60%;
+        width: auto;
+    }
+    /* あるいは、画像は中央に1つだけ表示するなどの選択肢もあります */
+    /* .background-images {
+        justify-content: center;
+    }
+    .background-images .left-image,
+    .background-images .right-image {
+        display: none;
+    }
+    .background-images .center-image {
+        display: block;
+    } */
+}
+
+/* ==================================
+ * メインページのHeroセクション背景画像
+ * ================================== */
+#hero {
+    /* 🚀 修正点1: PCでの高さ設定 */
+    /* 画面の高さ (100vh) の約1/3を設定します (30vh)。
+       高さの確保として、固定値 (例: 350px) も設定します。 */
+    min-height: 30vh;
+    height: 350px; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #ffe3e3; /* 背景を少し変えて目立たせる */
+    padding: 20px 20px; /* 上下のパディングを調整（高さを抑えるため） */
+}
+
+#index-hero {
+    min-height: 30vh;
+    height: 350px; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px 20px; /* 上下のパディングを調整（高さを抑えるため） */
+    background-color: #ffffff; 
+    
+    background-image: url('images/mix.png'); 
+    
+    background-size: auto 110%; /* 高さを基準に150%に拡大、幅は自動調整 */    
+    background-position: center; 
+    background-repeat: repeat; 
+}
+
+
+/* ==================================
+ * 実験内容ページのHeroセクション背景画像
+ * ================================== */
+#hero {
+    /* 🚀 修正点1: PCでの高さ設定 */
+    /* 画面の高さ (100vh) の約1/3を設定します (30vh)。
+       高さの確保として、固定値 (例: 350px) も設定します。 */
+    min-height: 30vh;
+    height: 350px; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #ffe3e3; /* 背景を少し変えて目立たせる */
+    padding: 20px 20px; /* 上下のパディングを調整（高さを抑えるため） */
+}
+
+#contents-hero {
+    min-height: 30vh;
+    height: 350px; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px 20px; /* 上下のパディングを調整（高さを抑えるため） */
+    background-color: #ffffff; 
+    
+    background-image: url('images/mix.png'); 
+    
+    background-size: auto 110%; /* 高さを基準に150%に拡大、幅は自動調整 */    
+    background-position: center; 
+    background-repeat: repeat; 
+}
+
+
+/* ==================================
+ * 謝辞ページのHeroセクション背景画像
+ * ================================== */
+#hero {
+    /* 🚀 修正点1: PCでの高さ設定 */
+    /* 画面の高さ (100vh) の約1/3を設定します (30vh)。
+       高さの確保として、固定値 (例: 350px) も設定します。 */
+    min-height: 30vh;
+    height: 350px; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #ffe3e3; /* 背景を少し変えて目立たせる */
+    padding: 20px 20px; /* 上下のパディングを調整（高さを抑えるため） */
+}
+
+#thanks-hero {
+    min-height: 30vh;
+    height: 350px; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px 20px; /* 上下のパディングを調整（高さを抑えるため） */
+    background-color: #ffffff; 
+    
+    background-image: url('images/heart.png'); 
+    
+    background-size: auto 110%; /* 高さを基準に150%に拡大、幅は自動調整 */    
+    background-position: center; 
+    background-repeat: no-repeat; 
+    
+    
+}
+
+/* 実験概要セクションのテキストを太字にする */
+#summary p {
+    font-weight: bold;
+}
+
+/* 🚀 追加: 入れ子になったリストのテキストを太字にする */
+.butsuriko li ul li {
+    font-weight: bold;
+}
+
+/* ==================================
+ * 実験内容のリストなど
+ * ================================== */
+
+#tool h2,
+#color h2,
+#process h2 {
+    text-align: center;
+    font-size: 2.2em;
+    color:#2c3e50;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.tool-detail,
+.color-detail,
+.process-detail {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    padding: 0 20px;
+}
+
+.tool-detail ul,
+.color-detail ul,
+.process-detail ol{
+    padding-left: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+.tool-detail li,
+.color-detail li,
+.process-detail li{
+    margin-bottom: 10px;
+}
+
+.tool-detail li::marker {
+  font-weight: bold;
+  color: #0d0e64;
+}
+
+.color-detail li::marker {
+  font-weight: bold;
+  color: #0d0e64;
+}
+
+.process-detail li::marker {
+  font-weight: bold;
+  color: #0d0e64;
+}
+
+
+
+/* ----------------------------------
+ * 実験の概要セクション
+ * ---------------------------------- */
+#summary {
+    padding: 60px 20px;
+    max-width: 800px; /* 最大幅を設定して読みやすくする */
+    margin: 0 auto; /* 中央寄せ */
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* 軽い影 */
+    margin-bottom: 40px;
+}
+
+#summary h3 {
+    font-size: 2em;
+    color: #007bff;
+    margin-bottom: 20px;
+    border-left: 5px solid #007bff; /* 左に線を入れてデザインアクセント */
+    padding-left: 10px;
+}
+
+#summary p {
+    margin-bottom: 1.5em;
+    font-size: 1.1em;
+    text-align: justify; /* 両端揃えで読みやすく */
+}
+
+
+/* ----------------------------------
+ * メンバー紹介セクション
+ * ---------------------------------- */
+#people h2 {
+    text-align: center;
+    font-size: 2.2em; /* メンバーの見出しサイズ（維持） */
+    color:#2c3e50;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.butsuriko {
+    max-width: 600px;
+    margin: 0 auto 40px auto; 
+    padding: 0 20px;
+}
+
+/* 🚀 修正点1: 親リスト (イニシャル) のフォントサイズをメンバー見出しと同じに */
+.butsuriko > ul {
+    /* ul要素へのセレクタをより限定的に（> ul）することで、入れ子のulには影響を与えない */
+    list-style-position: inside; 
+    padding-left: 0; /* 中央寄せのため0を維持 */
+    
+    /* 修正: イニシャルのフォントサイズを見出しと同じにする (2.2emに近づける) */
+    font-size: 2.0em; 
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+/* 🚀 修正点2: 入れ子リスト (すきなもの) のフォントサイズを現在のイニシャルサイズに */
+.butsuriko li ul {
+    /* 入れ子リストのパディングを調整して中央寄せを維持 */
+    padding-left: 0;
+}
+
+.butsuriko li ul li {
+    /* 修正: イニシャルの元サイズ (1.5em) をここで使用 */
+    font-size: 0.75em; /* 親の2.0emに対する相対サイズ ≒ 1.5em */
+    font-weight: normal; /* 太字を解除 */
+    
+    /* 🚀 修正点3: リストマーカーを消す */
+    list-style-type: none; 
+}
+
+
+/* リストアイテムの中央寄せ設定を維持 */
+.butsuriko li {
+    margin-bottom: 10px;
+    text-align: center; 
+}
+
+/* イニシャルのマーカー設定は維持 */
+.butsuriko li::marker {
+    font-weight: bold;
+    color: #0d0e64;
+}
+
+
+
+/* ----------------------------------
+ * 謝辞
+ * ---------------------------------- */
+
+
+ 
+#specialthanks h2 {
+    text-align: center;
+    font-size: 2.2em;
+    color:#2c3e50;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.professor {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    padding: 0 20px;
+}
+
+.professor ul{
+    padding-left: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+.professor li{
+    margin-bottom: 10px;
+}
+
+.professor li::marker {
+  font-weight: bold;
+  color: #0d0e64;
+}
+
+/* ----------------------------------
+ * フッター
+ * ---------------------------------- */
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+/* 画面が小さい場合の調整（例：スマートフォン） */
+@media (max-width: 768px) {
+    .fixed-header {
+        flex-direction: column; /* 縦並びにしてスペースを確保 */
+        height: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .fixed-header h1 {
+        margin-bottom: 10px;
+    }
+
+    .fixed-header nav ul {
+        flex-wrap: wrap; /* リンクが多い場合に折り返す */
+        justify-content: center;
+    }
+
+    .fixed-header nav ul li {
+        margin: 5px 10px;
+    }
+
+    body {
+        padding-top: 120px; /* ヘッダーが大きくなった分調整 */
+    }
+    
+    .hero-content h2 {
+        font-size: 2.5em;
+    }
+    
+    .hero-content .catchphrase {
+        font-size: 1.2em;
+    }
+
+    #summary {
+        padding: 40px 15px;
+    }
+}
+
+/* ==================================
+ * 実験内容ページ (写真ギャラリー) のスタイル
+ * ================================== */
+
+#experiment h2 {
+    text-align: center;
+    font-size: 2.2em;
+    color:#2c3e50;
+    margin-top: 40px;
+    margin-bottom: 20px;
+
+}
+
+
+/* ギャラリーコンテナ */
+.photo-gallery {
+    max-width: 1000px; /* PCでの最大幅 */
+    margin: 40px auto; /* 中央寄せ */
+    padding: 0 20px;
+    display: grid;
+    
+    /* PC表示: 2列 */
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px; 
+}
+
+/* 各写真アイテム */
+.photo-item {
+    text-align: center;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.photo-item img {
+    width: 100%; 
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.photo-caption {
+    /* UDデジタル教科書体を継承 */
+    font-size: 1em;
+    text-align: left; /* 説明文を左寄せ */
+    padding: 0 5px;
+}
+
+/* ----------------------------------
+ * レスポンシブ対応 (スマホ表示: 縦1列)
+ * ---------------------------------- */
+@media (max-width: 768px) {
+    .photo-gallery {
+        /* スマホ表示では1列にする */
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+}
+
+@media (max-width:768px) {
+    .tool-detail,
+    .color-detail,
+    .process-detail {
+        max-width: 100%;
+    }
+}
+
+/* ----------------------------------
+ * レスポンシブ対応 (スマホ表示の調整)
+ * ---------------------------------- */
+@media (max-width: 768px) {
+    /* 🚀 修正点2: スマホでの高さ設定 */
+    #hero {
+        /* スマホでは縦長になるため、高さをさらに抑えるか、固定値にします */
+        min-height: 25vh;
+        height: 250px; 
+        padding: 15px 10px;
+    }
+    
+    .hero-content h2 {
+        font-size: 2.2em; /* スマホで見切れないようフォントサイズを小さく */
+    }
+    
+    .hero-content .catchphrase {
+        font-size: 1.2em;
+    }
+}

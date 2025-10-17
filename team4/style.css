@@ -2,7 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700&display=swap');
 
 /* 基本設定 */
+html {
+  scroll-behavior: smooth; /* スクロールをなめらかに */
+  height:100%;
+}
+
 body {
+    height:100%;
+    display:100dvh;
+    display:flex;
+    flex-direction: column;
     font-family: 'Noto Sans JP', sans-serif;
     margin: 0;
     padding: 0;
@@ -11,14 +20,19 @@ body {
     line-height: 1.6;
 }
 
+main{                                    
+  flex: 1 1 auto;
+}
+
 /* ヘッダーとナビゲーションバー */
 header {
+    display:block;
     background-color: #ffffff; /* ヘッダー背景は白 */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 10px 0;
+    padding: 10px ;
 }
 
 .site-title {
@@ -27,6 +41,7 @@ header {
     font-weight: 700;
     color: #00008b; /* タイトルカラー: ネイビー（指定色） */
     padding: 10px 20px;
+    white-space: nowrap;
 }
 
 .navbar {
@@ -75,25 +90,75 @@ header {
 
 /* メインコンテンツ */
 .container {
-    max-width: 900px;
+    max-width: 1100px;
     margin: 30px auto;
     padding: 0 20px;
 }
 
 .content-box {
     background-color: #ffffff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    margin-bottom: 30px;
+    max-width: 980px;
+    padding: 2.8rem 2.2rem;
+    margin: 0 auto;
+    border-radius: 22px;
+    box-shadow: 0 10px 24px rgba(24, 86, 126, 0.6);
 }
 
 .content-box h2 {
+    text-align: left;
     color: #00008b; /* 見出しカラー: ネイビー（指定色） */
     border-bottom: 3px solid #add8e6; /* 見出し下線: ライトブルー */
-    padding-bottom: 10px;
-    margin-top: 0;
-    font-size: 1.6em;
+    padding-bottom: 0.6rem;
+    margin: 0.3rem 0 1.2rem;
+    position: relative;
+    border: 0;
+    font-weight: 800;    
+}
+
+.content-box h2::after{
+  content:"";
+  display:block;
+  width: 220px;
+  height: 3px;
+  background: #bfe0ee;
+  border-radius: 2px;
+  margin-top: .6rem;
+  margin-left: 0;
+}
+
+.content-box p{
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: start;
+  line-height: 1.85;
+  word-break: keep-all;
+  line-break: loose;
+}
+.content-box p.lead{
+  background: #f5fbff;
+  border: 1px solid #e2f1f9;
+  border-left: 6px solid #cfe8f3;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  max-width: none;        /* ← ここがポイント：本文と同じ幅 */
+  margin-left: 0;
+  margin-right: 0; 
+}
+
+
+.content-box p.lead::before{
+  content:"";
+  position:absolute;
+  left:0; 
+  top:.2rem; 
+  bottom:.2rem;
+  width: 4px; 
+  border-radius: 4px;
+  background: #cfe8f3;
+}
+
+.content-box strong{
     font-weight: 700;
 }
 
@@ -101,6 +166,97 @@ header {
     font-size: 1.1em;
     font-weight: 300;
 }
+
+.nowrap{
+  white-space: nowrap;
+  display: inline-block; 
+}
+
+/* スマホ最適化 */
+@media (max-width: 720px){
+  .content-box{ padding: 2.2rem 1.2rem; }
+  .content-box h2::after{ width: 160px; }
+  .content-box p, .callout{ max-width: 100%; }
+  .nowrap{ white-space: normal; }
+}
+
+  header{
+    display: flex;
+    align-items: center;       /* 高さを中央で揃える */
+    justify-content: space-between; /* 両端に配置（左にタイトル・右にバー） */
+    padding: 8px 16px;         /* 上下の余白を少し抑える */
+  }
+
+
+.site-title{
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #00008b;
+    white-space: nowrap;       /* 改行を防ぐ！←これが一番大事 */
+}
+
+
+.menu-toggle{
+    display: block;
+    position: relative;
+    width: 36px; height: 36px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+.menu-toggle span{
+    position: absolute;
+    left: 6px; right: 6px;
+    height: 2px;
+    background:#00008b;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+
+.menu-toggle span:nth-child(1){ top: 10px; }
+.menu-toggle span:nth-child(2){ top: 17px; }
+.menu-toggle span:nth-child(3){ top: 24px; }
+
+  /* タイトルとバーが縦位置でズレないよう微調整 */
+.site-title, .menu-toggle {
+    line-height: 1;
+}
+
+/*トップページに使用*/
+.lead{
+  font-size: 1.15em;
+  font-weight: 500;
+  margin: .75rem 0 1rem;
+  line-height: 1.8;
+  word-break: keepall;
+  line-break: loose;
+  text-align: start;
+}
+.section-text p{
+  margin: .8rem 0;
+  line-height: 1.9;
+  max-width: 70ch;     /* 1行の長さを短くして読みやすく */
+}
+
+.subhead{
+  margin: 1.2rem 0 .5rem;
+  font-size: 1.1em;
+  color: #2e4a8f;
+  border-left: 4px solid #add8e6;
+  padding-left: .6rem;
+}
+
+.keypoints{
+  margin: .4rem 0 1.1rem 1.2rem; /* 上下の余白 + 左インデント */
+  padding: 0;
+}
+
+.keypoints li{
+  margin: .25rem 0;
+  line-height: 1.8;
+}
+
 
 /* メンバー紹介用レイアウト */
 .member-list {
@@ -127,12 +283,300 @@ header {
 
 /* フッター */
 footer {
+    margin-top:auto;
     text-align: center;
     padding: 15px;
     background-color: #add8e6; /* フッター背景: ライトブルー */
     color: #ffffff;
     font-size: 0.9em;
 }
+/*PLATEAUとはで使用*/
+.item-a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text-a{
+    flex: 1;
+    max-width: 780px;
+    font-size: large;
+    margin: 20px;
+    padding: 35px;
+    background-color: rgba(254, 246, 0, 0.132);
+    border-radius: 48px;
+}
+
+.item-b{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-b{
+    flex: 1;
+    max-width: 780px;
+    font-size: large;
+    margin: 20px;
+    background-color: rgba(254, 127, 0, 0.132);
+    border-radius: 48px;
+    padding: 35px;
+}
+
+.item-c{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text-c{
+    flex: 1;
+    max-width: 780px;
+    font-size: large;
+    margin: 20px;
+    padding: 35px;
+    background-color: rgba(254, 246, 0, 0.132);
+    border-radius: 48px;
+}
+/*活用案の説明ブロック*/
+.modes-cards { 
+    padding: 4rem 1rem 4rem; 
+    text-align: center; 
+}
+
+.mode-card a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+.modes-title { 
+    font-size: clamp(1.2rem, 2.4vw, 1.6rem); 
+    margin: 0 0 4rem; 
+    color:#2f2f2f; 
+}
+
+.modes-grid{
+   list-style:none;
+   margin:0 auto; 
+   padding:0;
+   display:grid; 
+   grid-template-columns: repeat(4, minmax(0,1fr));
+   max-width: 900px;
+   gap: 22px;
+}
+
+.mode-card{
+  background:#fff; 
+  border-radius:18px;
+  padding:1rem 0.8rem;
+  box-shadow: 0 6px 18px #00000014;
+  transition: transform .15s ease, box-shadow .15s ease;
+  border:1px solid rgba(0,0,0,0.06);
+  display:flex; 
+  flex-direction:column; 
+  align-items:center; 
+  gap:.4rem;
+}
+.mode-card:hover{ 
+    transform: translateY(-3px); 
+    box-shadow:0 10px 22px rgba(0,0,0,.10); 
+}
+
+.mode-icon{ 
+    font-size: 2rem; 
+    line-height:1; 
+}
+.mode-name{ 
+    font-size: clamp(1rem, 1.8vw, 1.2rem); 
+    margin:.25rem 0 0; color:#2e2e2e; 
+}
+.mode-desc{ 
+    font-size:0.8rem; 
+    color:#666; 
+    margin:.25rem 0 0; 
+    white-space: nowrap;
+    text-overflow: clip;
+    letter-spacing: -.01em;
+    width: 100%;
+
+}
+
+/* ===== Modal ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+place-items: start center;
+  background: rgba(0,0,0,0.45);
+  z-index: 1000;
+  padding-block: clamp(24px, 6vh, 80px);
+  padding-inline: 1.23rem;        
+  overflow-y: auto;     
+}
+
+
+.modal-card {
+  position: relative;
+  width: min(860px, 92vw);
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(24, 86, 126, 0.35);
+  border: 1px solid rgba(0,0,0,.06);
+  padding: 1.4rem 1.4rem 1.2rem;
+  transform: translateY(8px) scale(.98);
+  opacity: 0;
+  transition: transform .18s ease, opacity .18s ease;
+}
+
+.modal-overlay.show .modal-card {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px; right: 12px;
+  width: 28px; height: 28px;
+  border: 0;
+  border-radius: 999px;
+  background: #f0f4fa;
+  color: #2e4a8f;
+  font-size: 18px; line-height: 1;
+  cursor: pointer;
+}
+
+.modal-close:hover { background: #e6eef9; }
+
+#mode-modal-title {
+  margin: .2rem 2rem .4rem .2rem;
+  color: #00008b;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+#mode-modal-body {
+  margin: 0 .8rem .2rem .2rem;
+  line-height: 1.9;
+}
+/* ===== モーダル内の画像サイズ調整 ===== */
+.modal-body img {
+  display: block;
+  max-width: 20%;         /* 画像の最大幅（全体の75%） */
+  height: auto;
+  margin: 1.2rem auto;      /* 中央寄せ＆上下に余白 */
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  transition: transform 0.25s ease;
+}
+
+.modal-body img:hover {
+  transform: scale(1.03); /* ホバー時に少し拡大して立体感 */
+}
+
+/* 単体画像は従来サイズ（直下のimgだけに適用） */
+.modal-body > img {
+  max-width: 20%;
+}
+
+/* 画像を横並びにする行 */
+.modal-body .img-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;         /* PCは横並び固定 */
+  margin: 1.5rem 0;
+}
+
+/* 行内の各画像サイズ（スマホ画面のモックに合う比率） */
+.modal-body .img-row img {
+  height: auto;
+  max-width: 20%;                  
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  transition: transform 0.25s ease;
+}
+
+/* 画面が狭い時は縦積みに切り替え */
+@media (max-width: 900px) {
+  .modal-body .img-row {
+    flex-wrap: wrap;                 /* 折り返して縦並びへ */
+  }
+  .modal-body .img-row img {
+    width: min(420px, 92%);          /* 見やすい大きさで1列 */
+  }
+}
+
+
+
+.modal-content {
+  background: #fff;
+  border-radius: 24px;
+  padding: 2.5rem 3rem;  /* ← 余白を増やす（上下・左右） */
+  max-width: 800px;
+  max-height: calc(100dvh - 12 vh);     /* ← 画面高の90%でスクロール余裕 */
+  overflow-y: auto;      /* ← 内容が多いときに縦スクロール */
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+}
+
+.mode-subtext {
+  text-align: center;     /* 中央寄せ */
+  margin-top: 1.5rem;     /* 上との余白 */
+  margin-bottom: 2rem;    /* 下との余白 */
+  color: #555;            /* 少し落ち着いた色 */
+  font-size: 1rem;        /* 読みやすいサイズ */
+  letter-spacing: 0.05em; /* 少し広げると上品 */
+}
+
+
+
+
+
+
+/* オーバーレイ非表示時のアニメのため */
+.modal-overlay:not(.show){ pointer-events:none; }
+.modal-overlay[hidden]{ display:none !important; }
+
+
+/* 色のニュアンス（任意） */
+.mode-card.late  .mode-icon{ 
+    filter: drop-shadow(0 2px 0 rgba(255,0,0,.08)); 
+}
+.mode-card.diet  .mode-icon{ 
+    filter: drop-shadow(0 2px 0 rgba(0,0,0,.06));
+ }
+.mode-card.safety.mode-card .mode-icon{}
+.mode-card.rain  .mode-icon{}
+
+.menu-toggle {
+  display: none;
+  width:40px;
+  height:40px;
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  color: #00008b;
+  cursor: pointer;
+  position: absolute;
+  right:15px;
+  top:15px;
+}
+
+.menu-toggle span{
+  position: absolute; left: 8px; right: 8px;
+  height: 2px; background:#00008b; border-radius: 2px;
+  transform-origin: center; transition: transform .2s, opacity .2s, top .2s;
+}
+
+.menu-toggle span:nth-child(1){ top: 12px; }
+.menu-toggle span:nth-child(2){ top: 19px; }
+.menu-toggle span:nth-child(3){ top: 26px; }
+
+.site-header.open .menu-toggle span:nth-child(1){ top:19px; transform: rotate(45deg); }
+.site-header.open .menu-toggle span:nth-child(2){ opacity:0; }
+.site-header.open .menu-toggle span:nth-child(3){ top:19px; transform: rotate(-45deg); }
+
+
+
+
 
 /* スマートフォン対応 (レスポンシブ) */
 @media (max-width: 600px) {
@@ -147,7 +591,178 @@ footer {
         margin: 5px 10px;
         text-align: center;
     }
+
+   .content-box p,
+   .section-text {
+        line-height: 1.9;           /* 行間を少し広げる */
+        font-size:0.9rem;
+        letter-spacing: 0.03em;     /* 字間を少し広げる */
+        word-break: normal;         /* 不自然な単語折りを防止 */
+        overflow-wrap: anywhere;    /* 長い単語も自然に折る */
+        max-width: 90%;             /* 横幅を狭めて読みやすく */
+        margin: 0 auto 1.2rem;      /* 中央寄せ＋段落間余白 */
+        text-align: start;          /* 左揃えで自然に読む */
+    }
+
+   .content-box {
+    padding: 1.8rem 1.4rem;     /* 内側の余白を広めに */
+    margin: 0 auto 50px;
+   }
+
+
+
     .member-item {
         flex: 1 1 100%; /* 1列表示 */
     }
+
+    .mode-list { 
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+
+
+    .modal-body img {
+    max-width: 70%;
+    border-radius: 10px;
+  }
+    .lead, .section-text p{ 
+    max-width: 100%; 
+    }
+
+    .modes-grid{ 
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+
+
+    .modes-grid{ 
+    grid-template-columns: 1fr;
+    } 
+    
+    .menu-toggle {
+    display: block;
+    margin: 0 auto;
+  }
+
+    .navbar {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    background-color: #fff;
+  }
+
+    .navbar.show {
+    display: flex;
+  }
+
+    .menu-toggle {
+    display: block;
+  }
+
+  .navbar{
+    display:none;           
+    position:absolute; left:0; right:0; top:100%;
+    background:#fff; border-top:1px solid #e0ffff;
+    box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    padding: .4rem 0;
+    z-index: 1000;
+  }
+
+  .site-header{ position: sticky; top:0; z-index:1000; }
+  .site-header.open .navbar{ display:flex; flex-direction:column; }
+  .nav-button{ padding:10px 20px; margin:0; text-align:left;}
+
+
+  .navbar.show {
+    display: flex;
+  }
+
+  /* モーダルカード全体 */
+  .modal-card {
+    width: 80vw;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 16px;
+    padding: 1rem 1.2rem;
+    margin: 0 auto;       
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  /* タイトルと本文の文字サイズ調整 */
+  .modal-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  .modal-body p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+  }
+
+  /* 画像群を縦並び・中央寄せに */
+  .modal-body .img-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    margin: 1rem 0;
+  }
+  .modal-body img {
+    width: 30%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  /* 箇条書きも少しゆったり */
+  .modal-body ul {
+    margin: 1rem 0;
+    padding-left: 1.2rem;
+  }
+  .modal-body li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+
+  /* 閉じるボタンも少し下にずらす */
+  .modal-close {
+    top: 8px;
+    right: 12px;
+    font-size: 1.4rem;
+  }
+
+  .nowrap{
+  white-space: nowrap;
+  display: inline-block; 
 }
+
+  .item-a, .item-b, .item-c {
+    display: block;           /* 横並びを解除 */
+    margin: 0 auto 24px;      /* 下に余白を統一 */
+  }
+
+  .text-a, .text-b, .text-c {
+    max-width: 92%;           /* 画面に収まるように */
+    margin: 0 auto;           /* 中央寄せ */
+    padding: 28px 20px;       /* 少し余白を減らす */
+    min-height: auto;         /* 高さを固定せず、自然に合わせる */
+    box-sizing: border-box;
+  }
+  .text-c strong {
+    display: block;
+    white-space: nowrap;     /* 折り返し禁止 */
+    overflow: hidden;        /* 枠外非表示 */
+    font-weight: 700;
+    font-size: clamp(1.0rem, 1.8vw, 1.8rem); /* ← 自動調整の肝！ */
+    line-height: 1.4;
+  }
+  .text-a p,
+  .text-b p,
+  .text-c p {
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+  }
+
+
+}
+
+/* 丸ボタン（既存）があるなら上下の余白を調整して併存させる */
+.modes { padding-bottom: .75rem; }

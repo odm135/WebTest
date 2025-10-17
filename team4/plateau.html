@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header class="site-header">
         <div class="site-title">PLATEAUで進化するスマートルート</div>
+          <button class="menu-toggle" aria-label="メニュー"aria-expanded="false">
+                <span></span><span></span><span></span>
+          </button>
         <nav class="navbar">
             <a href="index.html" class="nav-button">タイトル・概要</a>
-            <a href="plateau.html" class="nav-button current">PLATEAUとは</a>
+            <a href="plateau.html" class="nav-button">PLATEAUとは</a>
             <a href="proposal.html" class="nav-button">提案活用案</a>
             <a href="members.html" class="nav-button">メンバー紹介</a>
             <a href="thanks.html" class="nav-button">謝辞</a>
@@ -22,16 +25,74 @@
         <section class="content-box">
             <h2>Project PLATEAUとは</h2>
             <p class="section-text">
-                ここに、**Project PLATEAU**に関する説明を入力してください。
-                何を目指しているプロジェクトなのか、どのようなデータが公開されているのか（3D都市モデルなど）、あなたの研究との関連性などを説明すると良いでしょう。
-                <br><br>
-                **例：** PLATEAUは、国土交通省が主導する、日本全国の3D都市モデルを整備・オープンデータ化するプロジェクトです。都市のデジタルツインを実現し、様々な分野での活用を目指しています。
+                PLATEAUは、国土交通省が推進する「3D都市モデル整備・活用・オープンデータ化プロジェクト」です。
+
             </p>
-            </section>
+        </section>
+        <div class="item-a">
+            <div class="text-a">
+                <p><strong class="nowrap">➀全国の都市を3Dで再現</strong></p>
+                <p>
+                    日本全国の都市を、建物・道路・鉄道・河川などの構造ごとに立体的にデータ化しています。
+                    建物の高さや形状、用途などの属性情報も含まれており、現実の街をそのままデジタル上に再現できます。
+                </p>               
+            </div>
+        </div>
+        <div class="item-b">
+            <div class="text-b">
+                <p><strong class="nowrap">➁誰でも使用できるオープンデータ</strong></p>
+                <p>
+                    PLATEAUのデータは、国土交通省が無料で公開しており、誰でもダウンロード・活用できます。
+                    学生や市民、企業なども自由に利用できる点が大きな特徴です。
+                </p>
+            </div>
+        </div>
+        <div class="item-c">
+            <div class="text-c">
+                <p><strong class="nowrap">➂現実の街をデジタル上に再現して、未来を試せる</strong></p>
+                <p>
+                    PLATEAUでは、実際の建物や道路の情報をそのまま3Dモデルにしているため、現実の都市をデジタル空間上で再現できます。
+                    これを使うと、街の変化や災害などをシミュレーションして試すことができます。
+                </p>
+            </div>
+        </div>
+
     </main>
 
     <footer>
         <p>&copy; 2025年度 日本女子大学理学部数物情報科学科 †精鋭部隊†</p>
     </footer>
+
+    <script>
+    const header   = document.querySelector('.site-header');
+    const toggle   = document.querySelector('.menu-toggle');
+    const navbar   = document.querySelector('.navbar');
+
+    toggle.addEventListener('click', () => {
+        const open = header.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+    });
+
+  // メニュー外クリックで閉じる
+    document.addEventListener('click', (e) => {
+        if (!header.contains(e.target)) header.classList.remove('open');
+    });
+
+  // リンク押したら閉じる
+    navbar.addEventListener('click', (e) => {
+        if (e.target.closest('a')) header.classList.remove('open');
+    });
+
+
+    (() => {
+        const here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        document.querySelectorAll('.navbar .nav-button').forEach(a => {
+            const href = (a.getAttribute('href') || '').toLowerCase();
+            const isCurrent = href === here || (href === 'index.html' && (here === '' || here === '/'));
+            a.classList.toggle('current', isCurrent);
+            if (isCurrent) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
+        });
+    })();
+    </script>
 </body>
 </html>

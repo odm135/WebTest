@@ -7,13 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header class="site-header">
         <div class="site-title">PLATEAUで進化するスマートルート</div>
+          <button class="menu-toggle" aria-label="メニュー"aria-expanded="false">
+                <span></span><span></span><span></span>
+          </button>
         <nav class="navbar">
             <a href="index.html" class="nav-button">タイトル・概要</a>
             <a href="plateau.html" class="nav-button">PLATEAUとは</a>
             <a href="proposal.html" class="nav-button">提案活用案</a>
-            <a href="members.html" class="nav-button current">メンバー紹介</a>
+            <a href="members.html" class="nav-button">メンバー紹介</a>
             <a href="thanks.html" class="nav-button">謝辞</a>
         </nav>
     </header>
@@ -23,24 +26,20 @@
             <h2>メンバー紹介</h2>
             <div class="member-list">
                 <div class="member-item">
-                    <h3>メンバー1</h3>
-                    <p>担当: [担当分野]</p>
-                    <p>一言: [意気込みや感想などを一言]</p>
+                    <h3>S.H</h3>
+                    <p>一言: 観たい映画がたくさんあって困ってます。(´・-・`)</p>
                 </div>
                 <div class="member-item">
-                    <h3>メンバー2</h3>
-                    <p>担当: [担当分野]</p>
-                    <p>一言: [意気込みや感想などを一言]</p>
+                    <h3>C.A</h3>
+                    <p>一言: 石油王であることを周囲に隠し、平凡な大学生活を送っています。</p>
                 </div>
                 <div class="member-item">
-                    <h3>メンバー3</h3>
-                    <p>担当: [担当分野]</p>
-                    <p>一言: [意気込みや感想などを一言]</p>
+                    <h3>M.E</h3>
+                    <p>一言:甘いものと音楽があれば生きていけます。</p>
                 </div>
                 <div class="member-item">
-                    <h3>メンバー4</h3>
-                    <p>担当: [担当分野]</p>
-                    <p>一言: [意気込みや感想などを一言]</p>
+                    <h3>M.Y</h3>
+                    <p>一言: ゲーム大好き限界大学生。とても眠い。</p>
                 </div>
             </div>
         </section>
@@ -49,5 +48,37 @@
     <footer>
         <p>&copy; 2025年度 日本女子大学理学部数物情報科学科 †精鋭部隊†</p>
     </footer>
+
+        <script>
+    const header   = document.querySelector('.site-header');
+    const toggle   = document.querySelector('.menu-toggle');
+    const navbar   = document.querySelector('.navbar');
+
+    toggle.addEventListener('click', () => {
+        const open = header.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+    });
+
+  // メニュー外クリックで閉じる
+    document.addEventListener('click', (e) => {
+        if (!header.contains(e.target)) header.classList.remove('open');
+    });
+
+  // リンク押したら閉じる
+    navbar.addEventListener('click', (e) => {
+        if (e.target.closest('a')) header.classList.remove('open');
+    });
+
+
+    (() => {
+        const here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        document.querySelectorAll('.navbar .nav-button').forEach(a => {
+            const href = (a.getAttribute('href') || '').toLowerCase();
+            const isCurrent = href === here || (href === 'index.html' && (here === '' || here === '/'));
+            a.classList.toggle('current', isCurrent);
+            if (isCurrent) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
+        });
+    })();
+    </script>
 </body>
 </html>

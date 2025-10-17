@@ -7,32 +7,221 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header class="site-header">
         <div class="site-title">PLATEAUで進化するスマートルート</div>
+          <button class="menu-toggle" aria-label="メニュー"aria-expanded="false">
+                <span></span><span></span><span></span>
+          </button>
         <nav class="navbar">
             <a href="index.html" class="nav-button">タイトル・概要</a>
             <a href="plateau.html" class="nav-button">PLATEAUとは</a>
-            <a href="proposal.html" class="nav-button current">提案活用案</a>
+            <a href="proposal.html" class="nav-button">提案活用案</a>
             <a href="members.html" class="nav-button">メンバー紹介</a>
             <a href="thanks.html" class="nav-button">謝辞</a>
         </nav>
     </header>
 
     <main class="container">
-        <section class="content-box">
-            <h2>提案する活用案：[提案名] の説明</h2>
-            <p class="section-text">
-                ここに、あなたが夏休みに研究した**具体的な活用案**とその**詳細な説明**を入力してください。
-                提案の独自性、技術的なポイント、期待される効果などを詳しく記述しましょう。
-                箇条書きなどを使って情報を整理すると読みやすくなります。
-                <br><br>
-                **例：** 私たちが提案するのは、PLATEAUデータとリアルタイムの気象データを組み合わせた「浸水リスク可視化システム」です。これにより、地域住民はより直感的に危険性を把握できます。
-            </p>
-            </section>
+        <section class="modes-cards" id="modes">
+            <h3 class="modes-title">4つのモードで、神回避</h3>
+            <ul class="modes-grid">
+                 <li class="mode-card late"
+                    data-title="遅刻回避モード"
+                    data-body-ref="tpl-late">
+                    <div class="mode-icon" aria-hidden="true">⏱️</div>
+                    <h4 class="mode-name">遅刻回避</h4>
+                    <p class="mode-desc">信号・遠回りを避け、最短で到着</p>
+                </li>
+                <li class="mode-card diet"
+                    data-title="ダイエットモード"
+                    data-body-ref="tpl-diet">
+                    <div class="mode-icon" aria-hidden="true">💪</div>
+                    <h4 class="mode-name">体重増加回避</h4>
+                    <p class="mode-desc">階段や歩数を優先、運動量アップ</p>
+                </li>
+                <li class="mode-card safety"
+                    data-title="裏社会モード"
+                    data-body-ref="tpl-safety">
+                    <div class="mode-icon" aria-hidden="true">🕶️</div>
+                    <h4 class="mode-name">危険回避</h4>
+                    <p class="mode-desc">夜道などリスクの高い場所を回避</p>
+                </li>
+                <li class="mode-card rain"
+                    data-title="雨よけモード"
+                    data-body-ref="tpl-rain">
+                    <div class="mode-icon" aria-hidden="true">🌂</div>
+                    <h4 class="mode-name">雨回避</h4>
+                    <p class="mode-desc">屋根・通路をつないで雨回避</p>
+                </li>
+            </ul>
+        </section>
+        <p class="mode-subtext">
+            クリックすると各モードの詳細を見られます。
+        </p>
     </main>
+
+    <template id="tpl-late">
+        <p>    
+            <strong>急いでいる！</strong>ときに最短で目的地へ導くモードです。
+            PLATEAUの3D都市データを用いて信号の位置や階段の有無を考慮し、  
+            最短経路をリアルタイムで再計算します。
+        </p>
+        <div class="img-row">
+            <img src="image/image1.png" alt="最短モードのイメージ">
+            <img src="image/image3.png" alt="緊急モードのイメージ">
+        </div>
+        <ul>
+            <li>信号・遠回りを自動的に回避</li>
+            <li>エスカレーターや、早い道を優先</li>
+            <li>「緊急モード」では残り時間をカウントダウン表示</li>
+        </ul>
+    </template>
+    <template id="tpl-diet">
+        <p>
+            <strong>移動しながら運動したい！</strong>という人におすすめのモードです。  
+            階段や坂道をあえて選び、PLATEAUの地形データを使用して、自然に運動量をアップします。
+        </p>
+        <img src="image/image2.png" alt="ダイエットモードのイメージ">
+        <ul>
+            <li>坂道や階段を優先したルート生成</li>
+            <li>1日の歩数目標を達成するナビゲーション</li>
+            <li>消費カロリーを推定して表示</li>
+        </ul>
+    </template>
+
+    <template id="tpl-safety">
+        <p>
+            <strong>安全第一で帰りたい！</strong>というときに最適なモードです。
+            犯罪発生マップや、街灯の位置データをもとに、危険エリアを自動で回避します。
+        </p>
+        <img src="image/image5.png" alt="裏社会モードのイメージ">
+          <ul>
+            <li>犯罪情報マップと連携した安全ルート提案</li>
+            <li>夜間照明が少ないルートを除外</li>
+            <li>危険エリアを段階に分けて色分け</li>
+        </ul>
+    </template>
+
+    <template id="tpl-rain">
+        <p>
+            <strong>雨の日でも濡れたくない！</strong>という人のためのモードです。
+            PLATEAUの屋根データや地下道情報を活用し、屋根付き・屋内経路を自動で接続します。
+        </p>
+        <img src="image/image6.png" alt="雨よけのイメージ">
+        <ul>
+            <li>建物のひさし・屋根・通路データを活用</li>
+            <li>地下道・商業施設内ルートを自動で接続</li>
+            <li>天候に応じて経路をリアルタイムで再計算</li>
+        </ul>
+    </template>
+
+
+
+
+
+    <div id="mode-modal" class="modal-overlay" hidden aria-hidden="true">
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="mode-modal-title">
+            <button class="modal-close" aria-label="閉じる">✖</button>
+            <h4 id="mode-modal-title"></h4>
+            <div id="mode-modal-body" class="modal-body"></div>
+
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2025年度 日本女子大学理学部数物情報科学科 †精鋭部隊†</p>
     </footer>
-</body>
+
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".mode-card");
+        const overlay = document.getElementById("mode-modal");
+        const modalTitle = document.getElementById("mode-modal-title");
+        const modalBody  = document.getElementById("mode-modal-body");
+        let lastFocused = null;
+
+        function openModal(title, body, triggerEl) {
+            cards.forEach(c => c.classList.remove("active"));
+            triggerEl.classList.add("active");
+
+
+            modalTitle.textContent = title || "";
+            modalBody.innerHTML = body || ""; 
+
+
+            lastFocused = document.activeElement;
+            overlay.hidden = false;
+            requestAnimationFrame(() => overlay.classList.add("show"));
+            closeBtn.focus();
+            overlay.setAttribute("aria-hidden", "false");
+        }
+
+
+        function closeModal() {
+            overlay.classList.remove("show");
+            overlay.setAttribute("aria-hidden", "true");
+            overlay.hidden = true;
+            cards.forEach(c => c.classList.remove("active"));
+            if (lastFocused) lastFocused.focus();
+        }
+
+        cards.forEach(card => {
+            card.addEventListener("click", (e) => {
+                e.preventDefault();
+                const title = card.dataset.title || "";
+                let body = card.dataset.body || "";
+
+                const refId = card.dataset.bodyRef;
+                if (refId) {
+                    const tpl = document.getElementById(refId);
+                    if (tpl) body = tpl.innerHTML;
+                }
+                
+                openModal(title, body, card);
+            });
+        });
+
+        overlay.addEventListener("click", (e) => {
+            const isOutside = e.target === overlay;
+            const isCloseBtn = e.target.closest(".modal-close");
+            if (isOutside || isCloseBtn) closeModal();
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && !overlay.hidden) closeModal();
+        });
+    });
+
+        const header   = document.querySelector('.site-header');
+        const toggle   = document.querySelector('.menu-toggle');
+        const navbar   = document.querySelector('.navbar');
+
+        toggle.addEventListener('click', () => {
+            const open = header.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', open);
+        });
+
+  // メニュー外クリックで閉じる
+        document.addEventListener('click', (e) => {
+            if (!header.contains(e.target)) header.classList.remove('open');
+        });
+
+  // リンク押したら閉じる
+        navbar.addEventListener('click', (e) => {
+            if (e.target.closest('a')) header.classList.remove('open');
+        });
+
+
+        (() => {
+            const here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+            document.querySelectorAll('.navbar .nav-button').forEach(a => {
+                const href = (a.getAttribute('href') || '').toLowerCase();
+                const isCurrent = href === here || (href === 'index.html' && (here === '' || here === '/'));
+                a.classList.toggle('current', isCurrent);
+                if (isCurrent) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
+            });
+        })();
+        </script>
+    </body>
 </html>
